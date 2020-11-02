@@ -8,10 +8,10 @@
     * [Ufuk](https://github.com/Ufuk-a)
     
 2. **Vision Processing**
-    * [Zeynep Melis]()
+    * [Zeynep Melis](https://github.com/seynepmeliz)
     * [Selin]()
-    * [Ahmet]()
+    * [Ahmet](https://github.com/ahmetalis)
   
 3. **Interface**
-    * [Ahmet Emin](https://github.com/Ahmet-Emin-Ustun)
     * [Yüşa](https://github.com/yehpop)
+    * [Ahmet Emin](https://github.com/Ahmet-Emin-Ustun)
