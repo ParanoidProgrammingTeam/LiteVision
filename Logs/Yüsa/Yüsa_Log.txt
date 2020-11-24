@@ -5,3 +5,5 @@ eldkedlkfğedlfkdkjpsdlfj
 Şuaan ikonu pygame ikonu olan bomboş siyah 800x600 px bi ekran var onun dışındaa hiç bi şey yok şldkfjğdşflkğdşflg
 Nasıl bi şiler eklemem gerekiyo bilmiyom başka zaman devam ederim todo filan eklerim
 Şimdi gidip öğrencilik köleliklerimi yerine getirmek için ödev yapıcam
+["Entry 2": 24.11.2020 - 14.23 PM]
+Branch yaptım diğer değişiklikleri de pushluyom
