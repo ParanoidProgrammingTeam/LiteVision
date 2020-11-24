@@ -1,0 +1,7 @@
+["Entry 1": 24.11.2020 - 12.44 PM]
+GUInterface sınıfı yaptım ve işte bi iki basit şey ekledim __init__ doysalarını hafiften şaaptım takıldım öyle
+ama branch olaylarını daha yapmadığımız ve hatta genel olarak hiç toplantı filan yapmadığımız için onları commitlemedim
+eldkedlkfğedlfkdkjpsdlfj
+Şuaan ikonu pygame ikonu olan bomboş siyah 800x600 px bi ekran var onun dışındaa hiç bi şey yok şldkfjğdşflkğdşflg
+Nasıl bi şiler eklemem gerekiyo bilmiyom başka zaman devam ederim todo filan eklerim
+Şimdi gidip öğrencilik köleliklerimi yerine getirmek için ödev yapıcam
