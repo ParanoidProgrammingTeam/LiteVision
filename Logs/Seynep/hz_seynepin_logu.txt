@@ -1,8 +1,10 @@
-deneme
-
 day1:
 bugün yattım ve müzik dinledm
 opencv videolarını izliyom hem tr hem ing
 tr olan mala anlatır gibi anlatıyo tam benlik
 şu andada babamla harry potter izliyoz
 artı olarak yine şu anda logun nolduğınu anlamaya çalışıyom yanlışım varsa forgive me  
+
+day2:
+bugün çok bişi yapmadım 
+ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an
