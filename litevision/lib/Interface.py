@@ -1,7 +1,8 @@
 import pygame
 import pygame_gui
 
-from litevision.res import glob
+from litevision.res.glob import *
+from litevision.lib.interface import SomeElement
 
 
 class GUInterface:
@@ -24,8 +25,8 @@ class GUInterface:
         self.background.fill(pygame.Color("#000000"))
 
         # manager
-        ## theme_path = ""
-        self.manager = pygame_gui.UIManager(self.window_dimensions)
+        theme_path = "litevision\\res\\theme.json"
+        self.manager = pygame_gui.UIManager(self.window_dimensions, theme_path)
 
         self.clock = pygame.time.Clock()
         self.is_running = True
@@ -39,7 +40,8 @@ class GUInterface:
     def run(self):
         # main loop
         while self.is_running:
-            time_delta = self.clock.tick(60) / 1000.0  # sets to 60 fps
+            time_delta = self.clock.tick(60) / 1000.0
+            # sets to 60 fps and i <b>think<\b> returns time between ticks
 
             for event in pygame.event.get():
                 self.on_event(event)

@@ -1,3 +1,3 @@
-from litevision.lib.interface.Interface import GUInterface
+from litevision.lib.interface.SomeElement import SomeElement
 
-__all__ = [GUInterface]
+__all__ = [SomeElement]
