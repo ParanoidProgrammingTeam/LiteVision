@@ -6,3 +6,9 @@ video izledim biraz ona çalışıp
 python ile bir chat uygulaması yapmakla
 ilgili biraz araştırma yapıcam.
 Ahmet Emin Üstün
+
+2.Gün 
+Bugün pygame videoları izledim 
+ama çok fazla değil
+bir de minik bir kod tekrarı yaptım
+
