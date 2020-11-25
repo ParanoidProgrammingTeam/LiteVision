@@ -1,3 +1,7 @@
 Görüntü işleme için olan türkçe kaynakta : https://www.youtube.com/watch?v=hRzBtQh6wuU&list=PLzcys7whQ6eSJdSHJh-xdOLvWPP24J76x&index=1
 
 6. bölümdeyim
+
+
+Normalde commiti falan siteden atıyordum yüşa sağ olsun öğretti vscodedan yapmayı.
+Bu gün pek bir şey yapmadım robotik için solidworks çalışacaktık onu bekliyorum şimdi.

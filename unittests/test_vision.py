@@ -12,5 +12,5 @@ class TestVision(unittest.TestCase):
         # Bunu silin
         print(vision.__version__)
         # %100 fark etmeyecekler
-        #Ahmet:FarkEttimAmaNeyiSilicem
+        #Ahmet:FarkEttimAmaNeyiSilicem#
         self.assertGreater(vision.__version__, 0)
