@@ -4,3 +4,8 @@ Bugün yatağımın üstünde yattım.
 Oldukça yumusak ama üstüne çok atladığımdan bazı kısımları garip sesler çıkartıyor.
 Çekyatı koltuk yapmaya üsendiğim için 3 yastıkla ayakta kalıyorum.
     -Ufuk
+
+Day 2:
+
+Opencv Doclarından bir kısım tutorial okudum yarın hepsini kendim de yazıcam.
+    -Yüşa aracılığıyla Ufuk
