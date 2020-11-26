@@ -7,4 +7,4 @@ artı olarak yine şu anda logun nolduğınu anlamaya çalışıyom yanlışım 
 
 day2:
 bugün çok bişi yapmadım 
-ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an
+ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an
