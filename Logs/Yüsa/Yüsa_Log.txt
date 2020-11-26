@@ -13,3 +13,6 @@ ve gelecek değişiklikler de aksini ifade etmediğim sürece interface branch'i
 ["Entry 3": 25.11.2020 - 16.56 PM]
 glob.py düzenledim aslında pek gerek yoktu ama neyse sıkılıyom dpflkğekf bi de ne yapıcağımız hakkında gram fikrim
 olmadığı için SomeElement.py gibi dosyalar yaptım elrfkjpeofkj yani pek bi şi yapmadım öyle dosya klasör düzeni filan
+
+["Entry 4": 26.11.2020 - 22.39 PM]
+see -> Logs/AhmetE/AhmetE_Kütük.txt

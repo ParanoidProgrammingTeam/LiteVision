@@ -8,3 +8,7 @@ artı olarak yine şu anda logun nolduğınu anlamaya çalışıyom yanlışım 
 day2:
 bugün çok bişi yapmadım 
 ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an
+
+day3:
+bugün de yine video filan bi şiler izledim ve izlicem opencvle ilgili
+bi de bikaç kod tekrarı mı denir işte onu yapıyom

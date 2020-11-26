@@ -9,3 +9,8 @@ Day 2:
 
 Opencv Doclarından bir kısım tutorial okudum yarın hepsini kendim de yazıcam.
     -Yüşa aracılığıyla Ufuk
+
+Day 3:
+
+Doclardaki tutorialdaki edge detectiona kadar(dahil) ilerledim.
+    -Ufuk
