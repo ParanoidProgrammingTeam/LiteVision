@@ -14,3 +14,8 @@ Day 3:
 
 Doclardaki tutorialdaki edge detectiona kadar(dahil) ilerledim.
     -Ufuk
+
+Day 4: 
+
+Contourlara baktım. Onlar da bana baktı. Yarın bida bakıcam.
+    -Ufuk
