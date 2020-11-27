@@ -9,7 +9,6 @@
     
 2. **Vision Processing**
     * [Zeynep Melis](https://github.com/seynepmeliz)
-    * [Selin](https://github.com/16thMoon)
     * [Ahmet](https://github.com/ahmetalis)
   
 3. **Interface**
