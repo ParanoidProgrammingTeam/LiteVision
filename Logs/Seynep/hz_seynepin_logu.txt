@@ -12,3 +12,11 @@ ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git 
 day3:
 bugün de yine video filan bi şiler izledim ve izlicem opencvle ilgili
 bi de bikaç kod tekrarı mı denir işte onu yapıyom
+
+day4:
+yine klasik video izledim bugünde thresholda baktım
+bide şimdi o geçen günki kamerada sadece yeşili gösterme şeysini thresholdla yazmaya çalışıyom inş yaparım
+
+day5:
+dün denediğim şey yanlış çalıştı sdsjdfblsdfbk ona bi daha bi uğraşıyom şimdi
+bi de video falan izliyom işte 1-2 saat daha falan izlerim

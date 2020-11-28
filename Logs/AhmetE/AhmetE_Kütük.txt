@@ -15,3 +15,7 @@ bir de minik bir kod tekrarı yaptım
 3.Gün 
 Bugün Yuşa ile birlikte pygame çalıştık
 (o bana öğretti),sonra genel pyton  videoları izledim
+
+4. Gün
+Bugün pygame dökümasyonunu biraz okudum ve raspberry pi videoları izledim.
+Dün ise yusha ile yazdığımız koda çalıştım sonra başka başka kodlara çalıştım.
