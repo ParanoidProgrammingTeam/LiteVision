@@ -3,6 +3,68 @@
         "font": {
             "name": "fira_code",
             "size": "14"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    },
+    "#settings_button": {
+        "colours": {
+            "normal_bg": "#2F4F4F",
+            "hovered_bg": "#2F4F4F",
+            "selected_bg": "#2F4F4F",
+            "active_bg": "#2F4F4F"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\settings_icon\\settings_icon_48px.png"
+            },
+            "selected_image": {
+                "path": "litevision\\res\\image_examples\\settings_icon\\settings_icon_selected_48px.png"
+            }
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "15",
+            "state_transitions": {
+                "normal_hovered": "0.5",
+                "hovered_normal": "0.5"
+            }
+        }
+    },
+    "#close_ui_button": {
+        "colours": {
+            "normal_bg": "#800000",
+            "hovered_bg": "#A72C12",
+            "selected_bg": "#FF0000",
+            "active_bg": "#FF0000"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        }
+    },
+    "#min_ui_button": {
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
         }
     }
 }

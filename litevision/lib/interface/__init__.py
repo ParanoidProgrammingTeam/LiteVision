@@ -1,3 +1,3 @@
-from litevision.lib.interface.SomeElement import SomeElement
+from litevision.lib.interface.SettingsWindow import SettingsWindow
 
-__all__ = [SomeElement]
+__all__ = [SettingsWindow]
