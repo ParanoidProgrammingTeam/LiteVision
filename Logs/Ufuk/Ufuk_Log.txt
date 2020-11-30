@@ -23,3 +23,10 @@ Contourlara baktım. Onlar da bana baktı. Yarın bida bakıcam.
 Day 5:
 Contourlara bida baktım. Bu sefer bana geri bakmadılar.
    -Seynep aracılığıyla Ufuk
+
+Day 7:
+İki farklı konuya bakmaya çalıstım biri basta çalıstı sonra tutorialın aynısını
+yapsam da durmadan hata verdi ve çözüm bulamadım.İkincisi direkt
+matplotlib importlarken hata verdi, versiyon filan değistireyim dedim ama
+o bile hata verdi.
+    -Ufuk

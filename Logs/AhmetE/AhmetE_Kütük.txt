@@ -26,3 +26,6 @@ Dün ise yusha ile yazdığımız koda çalıştım sonra başka başka kodlara 
 
 6. Gün
 Bugün biraz dökümandan pygame çalıştım
+
+7. Gün
+Pygame dökümasyonuna çalıştım
