@@ -23,3 +23,6 @@ sonra başka başka şeylere çalıştım
 5. Gün
 Bugün pygame dökümasyonunu biraz okudum ve raspberry pi videoları izledim.
 Dün ise yusha ile yazdığımız koda çalıştım sonra başka başka kodlara çalıştım.
+
+6. Gün
+Bugün biraz dökümandan pygame çalıştım
