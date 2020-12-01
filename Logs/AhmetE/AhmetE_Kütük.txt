@@ -29,3 +29,6 @@ Bugün biraz dökümandan pygame çalıştım
 
 7. Gün
 Pygame dökümasyonuna çalıştım
+
+8. Gün 
+Dökümandan okudum ve ona çalıştım
