@@ -37,3 +37,9 @@ Hatalardan kaçmayı basardım, contourlara baktım, histogramları farklı bir 
 verdiği için atladım sonra da baya image processing de ne varsa okudum çok
 şey kalmamış zaten yarın histogram ve okudumlarımın kodunu yapıcam
     -Ufuk
+
+Day 9:
+
+Histogram plus doclarda image processingin gerisini yaptım,
+bir yerden sonra matematiğnin bir parçasını bile anlamadım ama kullanabiliyorum en azından
+    -Ufuk

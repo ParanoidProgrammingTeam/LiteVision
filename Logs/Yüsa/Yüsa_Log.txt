@@ -32,3 +32,9 @@ UI'ya düzgünce başladım seksi bi settings butonu yaptım arkaplana tunanın 
 Direkt ana pencereyi borderless yaptım ve kapatma-küçültme tuşları koydm bi de hz. seynep yardımıyla ikon ekledim
 Her değişiklikte grubu spamladığımı düşünürsek bu yazıya gerek yoktu ama çok canım çekti psokjspdcfkj
 theme.json uğraştırıyo biraz ama değiyo bence müthişmel
+
+["Entry 8": 3.12.2020 - 02.37 AM]
+MENU BAR YAPTIM YEY
+Ama rgb butonunu rengi değiştirince buton rengi değişsin gibi yapmak istiyodum salak pygame_gui'le olmuyo...
+Biraz daha kafa yorarım ona ama şuan değil saat baya geç sldkjdlfkj
+Öyle baya fazla yazdım bugün psldkdplfkdeşlf
