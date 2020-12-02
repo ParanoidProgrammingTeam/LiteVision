@@ -31,7 +31,9 @@ GUI_ANCHORS_BOTTOM_RIGHT = {
 }
 # top left zaten default diye eklemedim
 
-APP_SETTINGS_PATH = "litevision\\res\\glob.json"
+APP_SETTINGS_PATH = "litevision\\res\\settings.json"
+LITEVISION_SETTINGS_PATH = "litevision\\res\\litevision.json"
+THEME_FILE = "litevision\\res\\theme.json"
 
 
 def read_json(path=APP_SETTINGS_PATH):
@@ -50,10 +52,50 @@ def write_to(obj, path=APP_SETTINGS_PATH):
     return True
 
 
+MENU_BAR_DATA_DICT = {
+    '#icon': {
+        'display_name': '',
+        'items': {}
+    },
+    '#empty_1': {
+        'display_name': '',
+        'items': {}
+    },
+    '#empty_2': {
+        'display_name': '',
+        'items': {}
+    },
+    '#rgb_button': {
+        'display_name': ' ',
+        'items': {
+            '#red': {
+                'display_name': 'red'
+            },
+            '#green': {
+                'display_name': 'green'
+            },
+            '#blue': {
+                'display_name': 'blue'
+            }
+        }
+    },
+    '#start_pause': {
+        'display_name': ' ',
+        'items': {}
+    },
+    '#cam_change': {
+        'display_name': ' ',
+        'items': {}
+    }
+}
+
+GUI_OFFSET_VALUE = 5
+
 __all__ = [
     'GUI_BUTTON_PRESSED', 'GUI_ANCHORS_BOTTOM_LEFT',
     'GUI_ANCHORS_BOTTOM_RIGHT', 'GUI_ANCHORS_TOP_RIGHT', 'APP_SETTINGS_PATH',
-    'read_json', 'write_to'
+    'LITEVISION_SETTINGS_PATH', 'THEME_FILE', 'MENU_BAR_DATA_DICT',
+    'GUI_OFFSET_VALUE', 'read_json', 'write_to'
 ]
 # çünkü from glob import * kullanların typing.Union gibi modülleri importlamasını istemiyorum pdflkgjğdfpk
 # yeni global değişken yazınca bu listenin içine '' içinde yazın import * diyince importlanıcak şeyler listesi

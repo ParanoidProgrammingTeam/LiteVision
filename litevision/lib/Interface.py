@@ -15,7 +15,7 @@ import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
 
 from litevision.res.glob import *
-from litevision.lib.interface import SettingsWindow
+from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents
 
 
 class GUInterface:
@@ -47,7 +47,8 @@ class GUInterface:
         # attributes / ui elements
         ## buttons
         ### settings button
-        self.settings_button_rect = pygame.Rect((0, -48), (48, 48))
+        self.settings_button_rect = pygame.Rect((5, -48 - GUI_OFFSET_VALUE),
+                                                (48, 48))
         self.settings_button = UIButton(self.settings_button_rect,
                                         '',
                                         self.manager,
@@ -75,12 +76,25 @@ class GUInterface:
         ### stream window
         #### self.stream_window = StreamWindow()
 
+        ## other
+        ### menubar
+        self.menu_bar = MenuBar(pygame.Rect(
+            (0, 0), (58, self.window_dimensions[1] -
+                     self.settings_button_rect.height - GUI_OFFSET_VALUE)),
+                                self.manager,
+                                object_id='#menu_bar')
+        ### menubar event handler
+        self.menu_events = HandlerForMenuBarEvents(self.main_window,
+                                                   self.manager)
+
         self.clock = pygame.time.Clock()
         self.is_running = True
 
     def on_event(self, event):
         if event.type == pygame.QUIT:
             self.is_running = False
+
+        self.menu_events.process_events(event)
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
