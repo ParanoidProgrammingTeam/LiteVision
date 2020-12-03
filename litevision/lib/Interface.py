@@ -94,7 +94,7 @@ class GUInterface:
         if event.type == pygame.QUIT:
             self.is_running = False
 
-        self.menu_events.process_events(event)
+        self.menu_events.process_events(event, self.menu_bar)
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED

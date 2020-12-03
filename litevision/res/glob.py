@@ -65,19 +65,9 @@ MENU_BAR_DATA_DICT = {
         'display_name': '',
         'items': {}
     },
-    '#rgb_button': {
-        'display_name': ' ',
-        'items': {
-            '#red': {
-                'display_name': 'red'
-            },
-            '#green': {
-                'display_name': 'green'
-            },
-            '#blue': {
-                'display_name': 'blue'
-            }
-        }
+    '#networking': {
+        'display_name': '',
+        'items': {}
     },
     '#start_pause': {
         'display_name': ' ',

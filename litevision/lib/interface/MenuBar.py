@@ -1,3 +1,4 @@
+import os
 from typing import Union, Tuple, Dict
 
 import pygame
@@ -7,7 +8,7 @@ from pygame_gui.core import UIElement, UIContainer
 from pygame_gui.core.drawable_shapes.rect_drawable_shape import RectDrawableShape
 from pygame_gui.core.interfaces import IContainerLikeInterface
 
-from pygame_gui.elements import UIButton, UISelectionList
+from pygame_gui.elements import UIButton, UISelectionList, UIImage
 from litevision.res.glob import *
 
 
@@ -73,6 +74,55 @@ class MenuBar(UIElement):
         # menü butonları için for loop
         current_y_pos = 0
         for menu_key, menu_item in self.menu_data.items():
+            if menu_key == '#icon':
+                icon_surf = pygame.image.load(
+                    os.path.join('litevision', 'res', 'image_examples',
+                                 'icon.png')).convert_alpha()
+                self.icon = UIImage(
+                    pygame.Rect(
+                        (0 + GUI_OFFSET_VALUE +
+                         ((48 - 32) // 2), current_y_pos + GUI_OFFSET_VALUE),
+                        (32, 32)), icon_surf, self.ui_manager,
+                    self.menu_bar_container, self, menu_key)
+                current_y_pos += 48
+                continue
+            elif menu_key == '#empty_1' or menu_key == '#empty_2':
+                empty_surf = pygame.Surface((48, 48),
+                                            pygame.SRCALPHA,
+                                            masks=pygame.Color('#2F4F4F'))
+                UIImage(
+                    pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
+                                (48, 48)), empty_surf, self.ui_manager,
+                    self.menu_bar_container, self, menu_key)
+                current_y_pos += 48
+                continue
+            elif menu_key == '#start_pause':
+                sp_surf = pygame.Surface((48, 48),
+                                         pygame.SRCALPHA,
+                                         masks=pygame.Color('#2F4F4F'))
+                sp_icon = pygame.image.load(
+                    os.path.join('litevision', 'res', 'image_examples',
+                                 'start_icon', 'pause.png')).convert_alpha()
+                self.start_button = UIButton(pygame.Rect(
+                    (0 + GUI_OFFSET_VALUE, current_y_pos), (48, 48)),
+                                             menu_item['display_name'],
+                                             self.ui_manager,
+                                             self.menu_bar_container,
+                                             object_id=menu_key,
+                                             parent_element=self)
+                
+                self.start_button.drawable_shape.states[
+                        'normal'].surface.blits(((sp_surf, (0, 0)),
+                                             (sp_icon, (0, 0))))
+                self.start_button.drawable_shape.states[
+                        'hovered'].surface.blits(((sp_surf, (0, 0)),
+                                             (sp_icon, (0, 0))))
+                self.start_button.drawable_shape.states[
+                        'selected'].surface.blits(((sp_surf, (0, 0)),
+                                             (sp_icon, (0, 0))))
+                self.start_button.drawable_shape.active_state.has_fresh_surface = True
+                current_y_pos += 48
+                continue
             UIButton(pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
                                  (48, 48)),
                      menu_item['display_name'],
@@ -184,7 +234,8 @@ class MenuBar(UIElement):
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
-                and event.ui_element in self.menu_bar_container.elements):
+                and event.ui_element in self.menu_bar_container.elements
+                and event.ui_object_id != '#menu_bar.#start_pause'):
             if self._selected_menu is not None:
                 self._selected_menu.unselect()
             self._selected_menu = event.ui_element

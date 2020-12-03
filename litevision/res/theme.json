@@ -20,24 +20,6 @@
             "shape_corner_radius": "2"
         }
     },
-    "#icon": {
-        "colours": {
-            "normal_bg": "#2F4F4F",
-            "hovered_bg": "#2F4F4F",
-            "selected_bg": "#2F4F4F",
-            "active_bg": "#2F4F4F"
-        },
-        "images": {
-            "normal_image": {
-                "path": "litevision\\res\\image_examples\\icon32x.png"
-            }
-        },
-        "misc": {
-            "shape": "rectangle",
-            "shadow_width": "0",
-            "border_width": "0"
-        }
-    },
     "#empty": {
         "colours": {
             "normal_bg": "#2F4F4F",
@@ -108,25 +90,6 @@
             "shadow_width": "0",
             "border_width": "0",
             "shape_corner_radius": "2"
-        }
-    },
-    "#rgb_button": {
-        "colours": {
-            "normal_bg": "#2F4F4F",
-            "hovered_bg": "#2F4F4F",
-            "selected_bg": "#2F4F4F",
-            "active_bg": "#2F4F4F"
-        },
-        "images": {
-            "normal_image": {
-                "path": "litevision\\res\\image_examples\\rgb_icon\\rgb.png"
-            }
-        },
-        "misc": {
-            "shape": "rounded_rectangle",
-            "shadow_width": "0",
-            "border_width": "0",
-            "shape_corner_radius": "15"
         }
     }
 }
