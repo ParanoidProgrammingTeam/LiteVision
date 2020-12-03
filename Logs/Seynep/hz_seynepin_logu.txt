@@ -29,3 +29,7 @@ hz. youtube'un yüce kaynakları aracılığıyla opencv master'ı olmaya bir ad
 
 day8:
 15. videoya geçtim bu akşam 17 yada 18e kadar biter
+
+day10:
+bugün videolarda ilerlemedim anlamadıgım bikaç bi şi vardı önceki yerlerde işte mesela
+blurring grubcut falan filan onlara baktım bi da

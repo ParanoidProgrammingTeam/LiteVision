@@ -32,3 +32,9 @@ Pygame dökümasyonuna çalıştım
 
 8. Gün 
 Dökümandan okudum ve ona çalıştım
+
+9.Gün
+pygame çalıştım
+
+10. Gün
+Bugün dökümandan çalıştım

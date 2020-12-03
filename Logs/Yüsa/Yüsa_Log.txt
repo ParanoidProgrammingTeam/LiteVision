@@ -38,3 +38,6 @@ MENU BAR YAPTIM YEY
 Ama rgb butonunu rengi değiştirince buton rengi değişsin gibi yapmak istiyodum salak pygame_gui'le olmuyo...
 Biraz daha kafa yorarım ona ama şuan değil saat baya geç sldkjdlfkj
 Öyle baya fazla yazdım bugün psldkdplfkdeşlf
+
+["Entry 9": 4.12.2020 - 01.04 AM]
+interface'e commit attım açıklamaya halim yok gözümden uyku akıyo kaçtım
