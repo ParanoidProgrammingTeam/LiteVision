@@ -38,3 +38,6 @@ pygame çalıştım
 
 10. Gün
 Bugün dökümandan çalıştım
+
+11. Gün 
+scroll bar çalıştım

@@ -51,3 +51,9 @@ Image processingden feature detectiona geçtim, matematik 10 level atladı bir
 komple okudum (matematik dısında) yarın birkaç fato bulup hepsini bi test 
 edicem sonra continue.
     -Ufuk
+
+Day 11:
+
+Feature detection kodunu yaptım, hani çok bir şey yapmış olmuyorum aslında deneyip
+ne yaptığını görüyorum sonra bay bay, biraz daha ilerlemeden çok işe yaramicak bunlar gibi
+    -Ufuk
