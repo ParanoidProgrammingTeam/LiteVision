@@ -10,6 +10,7 @@
 """
 
 import os
+import time
 import pygame
 import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
@@ -113,7 +114,7 @@ class GUInterface:
                 settings_rect = pygame.Rect((0, 0), (400, 400))
                 settings_rect.bottomleft = self.settings_button.rect.topright
                 self.settings_window = SettingsWindow(settings_rect,
-                                                      self.manager, 7864)
+                                                      self.manager)
             else:
                 self.settings_window.kill()
                 self.settings_window = None

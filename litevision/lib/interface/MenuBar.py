@@ -102,25 +102,28 @@ class MenuBar(UIElement):
                                          masks=pygame.Color('#2F4F4F'))
                 sp_icon = pygame.image.load(
                     os.path.join('litevision', 'res', 'image_examples',
-                                 'start_icon', 'pause.png')).convert_alpha()
-                self.start_button = UIButton(pygame.Rect(
-                    (0 + GUI_OFFSET_VALUE, current_y_pos), (48, 48)),
-                                             menu_item['display_name'],
-                                             self.ui_manager,
-                                             self.menu_bar_container,
-                                             object_id=menu_key,
-                                             parent_element=self)
-                
-                self.start_button.drawable_shape.states[
-                        'normal'].surface.blits(((sp_surf, (0, 0)),
-                                             (sp_icon, (0, 0))))
-                self.start_button.drawable_shape.states[
-                        'hovered'].surface.blits(((sp_surf, (0, 0)),
-                                             (sp_icon, (0, 0))))
-                self.start_button.drawable_shape.states[
-                        'selected'].surface.blits(((sp_surf, (0, 0)),
-                                             (sp_icon, (0, 0))))
-                self.start_button.drawable_shape.active_state.has_fresh_surface = True
+                                 'start_icon', 'start.png')).convert_alpha()
+                sp_surf.blit(sp_icon, (0, 0))
+                self.start_button = UIImage(
+                    pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
+                                (48, 48)), sp_surf, self.ui_manager,
+                    self.menu_bar_container, self, '#start_pause')
+
+                current_y_pos += 48
+                continue
+            elif menu_key == '#rgb_button':
+                rgb_surf = pygame.Surface((48, 48),
+                                          pygame.SRCALPHA,
+                                          masks=pygame.Color('#2F4F4F'))
+                rgb_icon = pygame.image.load(
+                    os.path.join('litevision', 'res', 'image_examples',
+                                 'rgb.png')).convert_alpha()
+                rgb_surf.blit(rgb_icon, (0, 0))
+                self.rgb_button = UIImage(
+                    pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
+                                (48, 48)), rgb_surf, self.ui_manager,
+                    self.menu_bar_container, self, '#rgb_button')
+
                 current_y_pos += 48
                 continue
             UIButton(pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
@@ -222,6 +225,20 @@ class MenuBar(UIElement):
             if self.hover_point(scaled_mouse_pos[0], scaled_mouse_pos[1]):
                 consumed_event = True
 
+        if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+            scaled_mouse_pos = self.start_button.ui_manager.calculate_scaled_mouse_position(
+                event.pos)
+            x = scaled_mouse_pos[0]
+            y = scaled_mouse_pos[1]
+            if self.start_button.hover_point(x, y):
+                event_data = {
+                    'user_type': pygame_gui.UI_BUTTON_START_PRESS,
+                    'ui_element': self.start_button,
+                    'ui_object_id': self.start_button.most_specific_combined_id
+                }
+                pygame.event.post(
+                    pygame.event.Event(pygame.USEREVENT, event_data))
+
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_ON_HOVERED
                 and event.ui_element in self.menu_bar_container.elements
@@ -235,7 +252,8 @@ class MenuBar(UIElement):
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
                 and event.ui_element in self.menu_bar_container.elements
-                and event.ui_object_id != '#menu_bar.#start_pause'):
+                and event.ui_object_id != '#menu_bar.#start_pause'
+                and event.ui_object_id != '#menu_bar.#rgb_button'):
             if self._selected_menu is not None:
                 self._selected_menu.unselect()
             self._selected_menu = event.ui_element
