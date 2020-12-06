@@ -44,3 +44,6 @@ scroll bar çalıştım
 
 12. Gün 
 seçme paneli ile ilgili çalıştım
+
+13. Gün 
+selection list çalıştım
