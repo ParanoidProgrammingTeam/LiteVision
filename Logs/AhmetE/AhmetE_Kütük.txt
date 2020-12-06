@@ -41,3 +41,6 @@ Bugün dökümandan çalıştım
 
 11. Gün 
 scroll bar çalıştım
+
+12. Gün 
+seçme paneli ile ilgili çalıştım
