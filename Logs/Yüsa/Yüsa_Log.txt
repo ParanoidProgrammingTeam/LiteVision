@@ -48,3 +48,7 @@ tuhaf oldu biraz neyse öyle ✨rgb menüsünü açıp kapama tuşu çirkin geld
 
 ["Entry 11": 7.12.2020 - 02.02 AM]
 bilmiyom
+
+["Entry 12": 8.12.2020 - 01.13 AM]
+yaptım bi şiler ama karıştırdım da biraz pencere boyutunu ayarlanabilir yapmaya fln çalışıyom yapıyom 
+bi şiler öyle 

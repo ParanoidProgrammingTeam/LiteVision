@@ -57,3 +57,10 @@ Day 11:
 Feature detection kodunu yaptım, hani çok bir şey yapmış olmuyorum aslında deneyip
 ne yaptığını görüyorum sonra bay bay, biraz daha ilerlemeden çok işe yaramicak bunlar gibi
     -Ufuk
+
+Day 14:
+
+Doclarda kalan her şeyi kullanmicam, kullansam da fonksiyonunu bildiğim sürece sıkıntı olmayacak
+şeyler, sanırım yarın güzel yakışıklı akıllı hocam tunadan frc goallarının resmini isticem,
+umarım vardır kendim bulmak istemiyom
+    -Ufuk

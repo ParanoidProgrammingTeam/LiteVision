@@ -47,3 +47,6 @@ seçme paneli ile ilgili çalıştım
 
 13. Gün 
 selection list çalıştım
+
+14. Gün 
+Bugün sadece selection list ve başka başka şeylere çalıştım
