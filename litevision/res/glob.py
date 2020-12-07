@@ -2,9 +2,9 @@
 Bütün repoda kullanılabilicek değişkenler falan filan 'glob' işte niye açıklama yapıyom pdfksğdpfkpsdlfk     
 """
 from typing import Union
-from pygame.event import Event
-import json
+import os
 import pygame
+from pygame.event import Event
 
 # buraya event yazarız..?
 GUI_STREAM_WINDOW_START: Union[Event,
@@ -13,7 +13,11 @@ GUI_STREAM_WINDOW_START: Union[Event,
 GUI_STREAM_WINDOW_PAUSE: Union[Event,
                                None] = Event(pygame.USEREVENT,
                                              {'user_type': 'stream_paused'})
-
+GUI_WINDOW_RESOLUTION_CHANGED: Union[Event, None] = Event(
+    pygame.USEREVENT, {'user_type': 'resolution_changed'})
+GUI_TOGGLE_FULLSCREEN: Union[Event,
+                             None] = Event(pygame.USEREVENT,
+                                           {'user_type': 'fullscreen_toggled'})
 # pygame gui elemanları için anchorları tek tek yazmak üşendirici olur gibi geldi direkt buraya değişkenlere
 # yazıcam çok daha rahat olur bence müq
 GUI_ANCHORS_BOTTOM_LEFT = {
@@ -36,9 +40,9 @@ GUI_ANCHORS_BOTTOM_RIGHT = {
 }
 # top left zaten default diye eklemedim
 
-APP_SETTINGS_PATH = "litevision\\res\\settings.json"
-LITEVISION_SETTINGS_PATH = "litevision\\res\\litevision.json"
-THEME_FILE = "litevision\\res\\theme.json"
+APP_SETTINGS_PATH = os.path.join('litevision', 'res', 'settings.json')
+LITEVISION_SETTINGS_PATH = os.path.join('litevision', 'res', 'litevision.json')
+THEME_FILE = os.path.join('litevision', 'res', 'theme.json')
 
 MENU_BAR_DATA_DICT = {
     '#icon': {
@@ -46,10 +50,6 @@ MENU_BAR_DATA_DICT = {
         'items': {}
     },
     '#empty_1': {
-        'display_name': '',
-        'items': {}
-    },
-    '#empty_2': {
         'display_name': '',
         'items': {}
     },
@@ -68,6 +68,10 @@ MENU_BAR_DATA_DICT = {
     '#rgb_button': {
         'display_name': ' ',
         'items': {}
+    },
+    '#empty_2': {
+        'display_name': '',
+        'items': {}
     }
 }
 
@@ -78,7 +82,8 @@ __all__ = [
     'GUI_STREAM_WINDOW_START', 'GUI_STREAM_WINDOW_PAUSE',
     'GUI_ANCHORS_BOTTOM_LEFT', 'GUI_ANCHORS_BOTTOM_RIGHT',
     'GUI_ANCHORS_TOP_RIGHT', 'APP_SETTINGS_PATH', 'LITEVISION_SETTINGS_PATH',
-    'THEME_FILE', 'MENU_BAR_DATA_DICT', 'GUI_OFFSET_VALUE', 'GUI_LANGUAGES'
+    'THEME_FILE', 'MENU_BAR_DATA_DICT', 'GUI_OFFSET_VALUE', 'GUI_LANGUAGES',
+    'GUI_WINDOW_RESOLUTION_CHANGED', 'GUI_TOGGLE_FULLSCREEN'
 ]
 # çünkü from glob import * kullanların typing.Union gibi modülleri importlamasını istemiyorum pdflkgjğdfpk
 # yeni global değişken yazınca bu listenin içine '' içinde yazın import * diyince importlanıcak şeyler listesi

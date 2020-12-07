@@ -1,8 +1,9 @@
 {
     "year": "2020",
     "resolution": {
-        "width": "800",
-        "height": "600"
+        "width": 800,
+        "height": 600
     },
+    "screen_mode": "bordered",
     "language": "turkce"
 }

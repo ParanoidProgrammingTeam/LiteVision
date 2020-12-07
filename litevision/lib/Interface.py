@@ -1,20 +1,20 @@
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~TODO~~~~~~~~~~~~~~~~~~~~~~~~~~
 - I just started I don't even know lol
-- Settings Window [~5%]
+- Settings Window [~20%]
 - Stream Window [~0%]
-- This Class [-15%]
-- Menu Bar or Side Menu Bar
+- This Class [~15%]
+- Menu Bar or Side Menu Bar [~10%]
 - a lot more
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
 import os
-import time
 import pygame
 import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
 
+import litevision.lib.database as database
 from litevision.res.glob import *
 from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents
 
@@ -31,18 +31,23 @@ class GUInterface:
         # ana pencere
         os.environ['SDL_VIDEO_CENTERED'] = '1'
         pygame.display.set_caption("LiteVision")
-        self.window_dimensions = (800, 600)
+
+        settings = database.read_json()
+        resolution = settings['resolution']
+        self.resolution = (int(resolution['width']), int(resolution['height']))
+        self.window_dimensions = (self.resolution)
 
         title_icon = pygame.image.load(
-            "litevision\\res\\image_examples\\icon32x.png")
+            os.path.join('litevision', 'res', 'image_examples', 'icon32x.png'))
         pygame.display.set_icon(title_icon)
+
         self.main_window = pygame.display.set_mode(self.window_dimensions,
                                                    pygame.NOFRAME)
         self.background = pygame.Surface(pygame.display.get_window_size())
         self.background.fill(pygame.Color("#2F4F4F"))
 
         # manager
-        theme_path = "litevision\\res\\theme.json"
+        theme_path = os.path.join('litevision', 'res', 'theme.json')
         self.manager = pygame_gui.UIManager(self.window_dimensions, theme_path)
 
         # attributes / ui elements
@@ -125,6 +130,15 @@ class GUInterface:
                 == self.settings_window.close_window_button):
             self.settings_window.kill()
             self.settings_window = None
+
+        if (event.type == pygame.USEREVENT
+                and event.user_type == 'resolution_changed'):
+            pygame.display.flip()
+            print("well..? again..")
+
+        if (event.type == pygame.USEREVENT
+                and event.user_type == 'fullscreen_toggled'):
+            pygame.display.toggle_fullscreen()
 
         self.manager.process_events(event)
 

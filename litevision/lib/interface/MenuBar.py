@@ -84,7 +84,7 @@ class MenuBar(UIElement):
                          ((48 - 32) // 2), current_y_pos + GUI_OFFSET_VALUE),
                         (32, 32)), icon_surf, self.ui_manager,
                     self.menu_bar_container, self, menu_key)
-                current_y_pos += 48
+                current_y_pos += (48 + GUI_OFFSET_VALUE)
                 continue
             elif menu_key == '#empty_1' or menu_key == '#empty_2':
                 empty_surf = pygame.Surface((48, 48),
@@ -94,7 +94,7 @@ class MenuBar(UIElement):
                     pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
                                 (48, 48)), empty_surf, self.ui_manager,
                     self.menu_bar_container, self, menu_key)
-                current_y_pos += 48
+                current_y_pos += (48 + GUI_OFFSET_VALUE)
                 continue
             elif menu_key == '#start_pause':
                 sp_surf = pygame.Surface((48, 48),
@@ -109,7 +109,7 @@ class MenuBar(UIElement):
                                 (48, 48)), sp_surf, self.ui_manager,
                     self.menu_bar_container, self, '#start_pause')
 
-                current_y_pos += 48
+                current_y_pos += (48 + GUI_OFFSET_VALUE)
                 continue
             elif menu_key == '#rgb_button':
                 rgb_surf = pygame.Surface((48, 48),
@@ -124,7 +124,7 @@ class MenuBar(UIElement):
                                 (48, 48)), rgb_surf, self.ui_manager,
                     self.menu_bar_container, self, '#rgb_button')
 
-                current_y_pos += 48
+                current_y_pos += (48 + GUI_OFFSET_VALUE)
                 continue
             UIButton(pygame.Rect((0 + GUI_OFFSET_VALUE, current_y_pos),
                                  (48, 48)),
@@ -133,7 +133,7 @@ class MenuBar(UIElement):
                      self.menu_bar_container,
                      object_id=menu_key,
                      parent_element=self)
-            current_y_pos += 48
+            current_y_pos += (48 + GUI_OFFSET_VALUE)
 
     def unfocus(self):
         if self.open_menu is not None:
