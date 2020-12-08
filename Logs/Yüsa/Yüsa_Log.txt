@@ -52,3 +52,6 @@ bilmiyom
 ["Entry 12": 8.12.2020 - 01.13 AM]
 yaptım bi şiler ama karıştırdım da biraz pencere boyutunu ayarlanabilir yapmaya fln çalışıyom yapıyom 
 bi şiler öyle 
+
+["Entry 13": 9.12.2020 - 01.32 AM]
+logları daha erken atma kararı aldım. dpfjdıfpdoıfdpo

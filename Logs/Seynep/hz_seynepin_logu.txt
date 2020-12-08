@@ -43,3 +43,6 @@ izledim bugün başka da bi şi yapamadım
 
 day13:
 19. videoyu izledim bi de 12 - 14 arasına tekrar göz attım 
+
+day15:
+windowsa opencv kurmakla ugrastim bide bi iki tekrar falan yaptim
