@@ -46,3 +46,6 @@ day13:
 
 day15:
 windowsa opencv kurmakla ugrastim bide bi iki tekrar falan yaptim
+
+day16:
+tekrar yaptım ilerlemedim videolarda
