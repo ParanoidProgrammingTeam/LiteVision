@@ -18,7 +18,18 @@ GUI_WINDOW_RESOLUTION_CHANGED: Union[Event, None] = Event(
 GUI_TOGGLE_FULLSCREEN: Union[Event,
                              None] = Event(pygame.USEREVENT,
                                            {'user_type': 'fullscreen_toggled'})
-# pygame gui elemanları için anchorları tek tek yazmak üşendirici olur gibi geldi direkt buraya değişkenlere
+
+
+def POST_SPECIAL_FLAG_CHANGE(text):
+    GUI_SCREEN_SPECIAL_FLAGS_CHANGED: Union[Event, None] = Event(
+        pygame.USEREVENT, {
+            'user_type': 'screen_flag_changed',
+            'text': text
+        })
+    pygame.event.post(GUI_SCREEN_SPECIAL_FLAGS_CHANGED)
+    # pygame gui elemanları için anchorları tek tek yazmak üşendirici olur gibi geldi direkt buraya değişkenlere
+
+
 # yazıcam çok daha rahat olur bence müq
 GUI_ANCHORS_BOTTOM_LEFT = {
     'left': 'left',
@@ -83,7 +94,8 @@ __all__ = [
     'GUI_ANCHORS_BOTTOM_LEFT', 'GUI_ANCHORS_BOTTOM_RIGHT',
     'GUI_ANCHORS_TOP_RIGHT', 'APP_SETTINGS_PATH', 'LITEVISION_SETTINGS_PATH',
     'THEME_FILE', 'MENU_BAR_DATA_DICT', 'GUI_OFFSET_VALUE', 'GUI_LANGUAGES',
-    'GUI_WINDOW_RESOLUTION_CHANGED', 'GUI_TOGGLE_FULLSCREEN'
+    'GUI_WINDOW_RESOLUTION_CHANGED', 'GUI_TOGGLE_FULLSCREEN',
+    'POST_SPECIAL_FLAG_CHANGE'
 ]
 # çünkü from glob import * kullanların typing.Union gibi modülleri importlamasını istemiyorum pdflkgjğdfpk
 # yeni global değişken yazınca bu listenin içine '' içinde yazın import * diyince importlanıcak şeyler listesi

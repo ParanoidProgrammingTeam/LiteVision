@@ -26,7 +26,7 @@ class SettingsWindow(UIWindow):
         self.manager = manager
         self.settings = read_json()
 
-        self.special_flags = pygame.NOFRAME
+        self.special_flags = self.settings['screen_mode']
 
         # resolution ↓↓
         resol_label_rect = pygame.Rect(
@@ -127,6 +127,7 @@ class SettingsWindow(UIWindow):
                 and event.ui_element == self.scr_mode_menu):
             new_scr_mode = SettingsWindow.change_scr_for_lang(
                 self.settings['language'], "turkce", event)
+            print(new_scr_mode)
             self.settings['screen_mode'] = new_scr_mode
             write_to(self.settings)
             lang.strings = lang.change_strings()
@@ -137,14 +138,15 @@ class SettingsWindow(UIWindow):
                     pygame.event.post(GUI_TOGGLE_FULLSCREEN)
                 elif self.special_flags != pygame.NOFRAME:
                     self.special_flags = pygame.NOFRAME
-                    pygame.event.post(GUI_WINDOW_RESOLUTION_CHANGED)
+                    POST_SPECIAL_FLAG_CHANGE(self.special_flags)
+                    print("EVENT POSTED!")
             elif screen_mode == "windowed":
                 if self.special_flags == pygame.FULLSCREEN:
                     self.special_flags = 0
                     pygame.event.post(GUI_TOGGLE_FULLSCREEN)
                 elif self.special_flags != 0:
                     self.special_flags = 0
-                    pygame.event.post(GUI_WINDOW_RESOLUTION_CHANGED)
+                    POST_SPECIAL_FLAG_CHANGE(self.special_flags)
             elif screen_mode == "fullscreen":
                 if self.special_flags != pygame.FULLSCREEN:
                     self.special_flags = pygame.FULLSCREEN
@@ -189,7 +191,7 @@ class SettingsWindow(UIWindow):
             if event.text == lang.strings['screen_mode_list'][0]:
                 new_data = "windowed"
             elif event.text == lang.strings['screen_mode_list'][1]:
-                new_data = "bordered"
+                new_data = "borderless"
             elif event.text == lang.strings['screen_mode_list'][2]:
                 new_data = "fullscreen"
-            return new_data
+        return new_data

@@ -6,6 +6,7 @@
 - This Class [~15%]
 - Menu Bar or Side Menu Bar [~10%]
 - a lot more
+- MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -41,8 +42,15 @@ class GUInterface:
             os.path.join('litevision', 'res', 'image_examples', 'icon32x.png'))
         pygame.display.set_icon(title_icon)
 
+        flags = settings['screen_mode']
+        if flags != "fullscreen":
+            if flags == "borderless":
+                self.special_flags = pygame.NOFRAME
+            elif flags == "windowed":
+                self.special_flags = 0
+
         self.main_window = pygame.display.set_mode(self.window_dimensions,
-                                                   pygame.NOFRAME)
+                                                   self.special_flags)
         self.background = pygame.Surface(pygame.display.get_window_size())
         self.background.fill(pygame.Color("#2F4F4F"))
 
@@ -61,19 +69,23 @@ class GUInterface:
                                         object_id='#settings_button',
                                         anchors=GUI_ANCHORS_BOTTOM_LEFT)
         ### close window button
-        self.close_button_rect = pygame.Rect((-36, 0), (36, 16))
-        self.close_button = UIButton(self.close_button_rect,
-                                     '╳',
-                                     self.manager,
-                                     object_id='#close_ui_button',
-                                     anchors=GUI_ANCHORS_TOP_RIGHT)
+        self.close_button = None
+        if self.special_flags != 0:
+            self.close_button_rect = pygame.Rect((-36, 0), (36, 16))
+            self.close_button = UIButton(self.close_button_rect,
+                                         '╳',
+                                         self.manager,
+                                         object_id='#close_ui_button',
+                                         anchors=GUI_ANCHORS_TOP_RIGHT)
         ### minimize window button
-        self.min_button_rect = pygame.Rect((-72, 0), (36, 16))
-        self.close_button = UIButton(self.min_button_rect,
-                                     '−',
-                                     self.manager,
-                                     object_id='#min_ui_button',
-                                     anchors=GUI_ANCHORS_TOP_RIGHT)
+        self.min_button = None
+        if self.special_flags != 0:
+            self.min_button_rect = pygame.Rect((-72, 0), (36, 16))
+            self.min_button = UIButton(self.min_button_rect,
+                                       '−',
+                                       self.manager,
+                                       object_id='#min_ui_button',
+                                       anchors=GUI_ANCHORS_TOP_RIGHT)
 
         ## windows
         ### settings window
@@ -134,13 +146,23 @@ class GUInterface:
         if (event.type == pygame.USEREVENT
                 and event.user_type == 'resolution_changed'):
             pygame.display.flip()
-            print("well..? again..")
+            self.is_running = False
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == 'fullscreen_toggled'):
             pygame.display.toggle_fullscreen()
 
+        if (event.type == pygame.USEREVENT
+                and event.user_type == "screen_flag_changed"):
+            self.special_flags = event.text
+            pygame.display.flip()
+            self.is_running = False
+
         self.manager.process_events(event)
+
+    def kill(self):
+        print("going dark")
+        pygame.quit()
 
     def run(self):
         # main loop

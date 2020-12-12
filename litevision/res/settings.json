@@ -4,6 +4,6 @@
         "width": 800,
         "height": 600
     },
-    "screen_mode": "bordered",
-    "language": "turkce"
+    "screen_mode": "borderless",
+    "language": "english"
 }
