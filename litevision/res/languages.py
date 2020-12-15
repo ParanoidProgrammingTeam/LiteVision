@@ -10,7 +10,8 @@ if language_setting == "turkce":
         'language_label': 'Dil Seçiniz:',
         'resolution_label': 'Ekran Çözünürlüğü:',
         'screen_mode_label': 'Pencere Ayarı:',
-        'screen_mode_list': ["çerçeveli", "çerçevesiz", "tam ekran"]
+        'screen_mode_list': ["çerçeveli", "çerçevesiz", "tam ekran"],
+        'keep_changes': 'değişiklikleri kaydet?'
     }
 else:
     strings = {
@@ -19,7 +20,8 @@ else:
         'language_label': 'Change Language:',
         'resolution_label': 'Screen Resolution:',
         'screen_mode_label': 'Window Mode:',
-        'screen_mode_list': ["windowed", "borderless", "fullscreen"]
+        'screen_mode_list': ["windowed", "borderless", "fullscreen"],
+        'keep_changes': 'keep changes?'
     }
 
 
@@ -34,7 +36,8 @@ def change_strings():
             'language_label': 'Dil Seçiniz:',
             'resolution_label': 'Ekran Çözünürlüğü:',
             'screen_mode_label': 'Pencere Ayarı:',
-            'screen_mode_list': ["çerçeveli", "çerçevesiz", "tam ekran"]
+            'screen_mode_list': ["çerçeveli", "çerçevesiz", "tam ekran"],
+            'keep_changes': 'değişiklikleri kaydet?'
         }
     if language_setting == "english":
         strings = {
@@ -43,6 +46,7 @@ def change_strings():
             'language_label': 'Change Language:',
             'resolution_label': 'Screen Resolution:',
             'screen_mode_label': 'Window Mode:',
-            'screen_mode_list': ["windowed", "borderless", "fullscreen"]
+            'screen_mode_list': ["windowed", "borderless", "fullscreen"],
+            'keep_changes': 'keep changes?'
         }
     return strings
