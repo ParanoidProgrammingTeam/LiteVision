@@ -49,3 +49,6 @@ windowsa opencv kurmakla ugrastim bide bi iki tekrar falan yaptim
 
 day16:
 tekrar yaptım ilerlemedim videolarda
+
+day17:
+human detectionda anlamadigim bi iki bi şi vardı ona baktım ve 20. videoyu izledim

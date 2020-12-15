@@ -55,4 +55,9 @@ Bugün sadece selection list ve başka başka şeylere çalıştım
 Textbox nasıl çalışır diye baktım
 
 16. Gün
-Gene selection listlerle uğraşıyom 
+Gene selection listlerle uğraşıyom
+
+17. Gün
+Log yazmadığım zamanlarda baya bi pygame_gui elemanlarına çalıştı...
+bugün de UIDropDownMenu ile uğraşıcaktı.
+    -Yüşa

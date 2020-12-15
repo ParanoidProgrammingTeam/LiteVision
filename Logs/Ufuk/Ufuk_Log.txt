@@ -64,3 +64,10 @@ Doclarda kalan her şeyi kullanmicam, kullansam da fonksiyonunu bildiğim sürec
 şeyler, sanırım yarın güzel yakışıklı akıllı hocam tunadan frc goallarının resmini isticem,
 umarım vardır kendim bulmak istemiyom
     -Ufuk
+
+Day 17:
+
+Litevisiona kod siftahsına basladım, yazdığım kodu gerektiği gibi değistirdim. 
+hani şuan yapıcak opencv filan kalmadı cebellese cebellese yüsaya danısa 
+danısa cidden bi program yapmaya çalısıcam
+    -Ufuk
