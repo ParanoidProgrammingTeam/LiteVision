@@ -208,8 +208,6 @@ class SettingsWindow(UIWindow):
                 self.any_settings_changed = False
                 if saved_changes:
                     pygame.event.post(GUI_CHANGES_MADE_TO_SETTINGS)
-                else:
-                    pygame.event.post(GUI_TOGGLE_FULLSCREEN)
             else:
                 pass
 
