@@ -144,18 +144,23 @@ class GUInterface:
             self.settings_window = None
 
         if (event.type == pygame.USEREVENT
-                and event.user_type == 'resolution_changed'):
-            pygame.display.flip()
-            self.is_running = False
+                and event.user_type == 'language_changed'
+                and self.settings_window is not None):
+            print("language change detected")
+            self.settings_window.kill()
+            self.settings_window = None
+            if self.settings_window == None:
+                settings_rect = pygame.Rect((0, 0), (400, 400))
+                settings_rect.bottomleft = self.settings_button.rect.topright
+                self.settings_window = SettingsWindow(settings_rect,
+                                                      self.manager)
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == 'fullscreen_toggled'):
             pygame.display.toggle_fullscreen()
 
         if (event.type == pygame.USEREVENT
-                and event.user_type == "screen_flag_changed"):
-            self.special_flags = event.text
-            pygame.display.flip()
+                and event.user_type == 'changes_made'):
             self.is_running = False
 
         self.manager.process_events(event)

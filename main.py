@@ -11,7 +11,6 @@ if __name__ == "__main__":
         resolution = settings['resolution']
 
         app = GUInterface()
-        print(app.is_running)
         app.run()
         print("stopped running")
         app.kill()
@@ -23,7 +22,7 @@ if __name__ == "__main__":
         if settings['screen_mode'] != screen_mode:
             print("mode change detected!")
             app = None
-            print("objet cleaned")
+            print("object cleaned")
             print("restarting loop")
         elif settings['resolution'] != resolution:
             print("size change detected!")

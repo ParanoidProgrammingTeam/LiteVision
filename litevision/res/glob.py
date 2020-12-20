@@ -18,6 +18,11 @@ GUI_WINDOW_RESOLUTION_CHANGED: Union[Event, None] = Event(
 GUI_TOGGLE_FULLSCREEN: Union[Event,
                              None] = Event(pygame.USEREVENT,
                                            {'user_type': 'fullscreen_toggled'})
+GUI_LANUAGE_CHANGED: Union[Event,
+                           None] = Event(pygame.USEREVENT,
+                                         {'user_type': 'language_changed'})
+GUI_CHANGES_MADE_TO_SETTINGS: Union[Event, None] = Event(
+    pygame.USEREVENT, {'user_type': 'changes_made'})
 
 
 def POST_SPECIAL_FLAG_CHANGE(text):
@@ -95,7 +100,8 @@ __all__ = [
     'GUI_ANCHORS_TOP_RIGHT', 'APP_SETTINGS_PATH', 'LITEVISION_SETTINGS_PATH',
     'THEME_FILE', 'MENU_BAR_DATA_DICT', 'GUI_OFFSET_VALUE', 'GUI_LANGUAGES',
     'GUI_WINDOW_RESOLUTION_CHANGED', 'GUI_TOGGLE_FULLSCREEN',
-    'POST_SPECIAL_FLAG_CHANGE'
+    'POST_SPECIAL_FLAG_CHANGE', 'GUI_LANUAGE_CHANGED',
+    'GUI_CHANGES_MADE_TO_SETTINGS'
 ]
 # çünkü from glob import * kullanların typing.Union gibi modülleri importlamasını istemiyorum pdflkgjğdfpk
 # yeni global değişken yazınca bu listenin içine '' içinde yazın import * diyince importlanıcak şeyler listesi

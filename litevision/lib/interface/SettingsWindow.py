@@ -27,6 +27,14 @@ class SettingsWindow(UIWindow):
         self.settings = read_json()
 
         self.special_flags = self.settings['screen_mode']
+        self.any_settings_changed = False
+        self.setting_changed = {
+            'res': False,  # resolution of screen
+            'fll': False,  # screen made fullscreen
+            'scr': False,  # screen mode changed (other than fullscreen)
+            'lng': False,  # language changed
+            'yrs': False  # year changed 
+        }
 
         # resolution ↓↓
         resol_label_rect = pygame.Rect(
@@ -99,29 +107,43 @@ class SettingsWindow(UIWindow):
                                              lang_drop_down_rect, self.manager,
                                              self, self, '#lang_menu')
 
+        # keep changes? ↓↓
+        save_button_x_size = ((len(lang.strings['keep_changes']) * 10) - 18)
+        save_button_rect = pygame.Rect((-16 - save_button_x_size, -16 - 24),
+                                       (save_button_x_size, 24))
+        self.save_button = UIButton(save_button_rect,
+                                    lang.strings['keep_changes'],
+                                    self.manager,
+                                    self,
+                                    'keep and apply all changes?',
+                                    parent_element=self,
+                                    object_id='#keep_changes',
+                                    anchors=GUI_ANCHORS_BOTTOM_RIGHT)
+
     def process_event(self, event: pygame.event.Event) -> bool:
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.year_drop_down_menu):
             self.settings["year"] = event.text
-            write_to(self.settings)
-            lang.strings = lang.change_strings()
+            self.setting_changed['yrs'] = True
+            self.any_settings_changed = True
+
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.lang_drop_down):
             self.settings["language"] = event.text
-            write_to(self.settings)
-            lang.strings = lang.change_strings()
+            self.setting_changed['lng'] = True
+            self.any_settings_changed = True
+
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.resol_drop_down):
             resolution = self.make_res_tuple(event.text)
             self.settings["resolution"]['width'] = resolution[0]
             self.settings["resolution"]['height'] = resolution[1]
-            write_to(self.settings)
-            lang.strings = lang.change_strings()
-            pygame.event.post(GUI_WINDOW_RESOLUTION_CHANGED)
-            print("well..?")
+            self.setting_changed['res'] = True
+            self.any_settings_changed = True
+
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.scr_mode_menu):
@@ -129,28 +151,67 @@ class SettingsWindow(UIWindow):
                 self.settings['language'], "turkce", event)
             print(new_scr_mode)
             self.settings['screen_mode'] = new_scr_mode
-            write_to(self.settings)
-            lang.strings = lang.change_strings()
             screen_mode = self.settings['screen_mode']
             if screen_mode == "borderless":
                 if self.special_flags == pygame.FULLSCREEN:
                     self.special_flags = pygame.NOFRAME
-                    pygame.event.post(GUI_TOGGLE_FULLSCREEN)
+                    self.setting_changed['fll'] = True
+                    self.any_settings_changed = True
                 elif self.special_flags != pygame.NOFRAME:
                     self.special_flags = pygame.NOFRAME
-                    POST_SPECIAL_FLAG_CHANGE(self.special_flags)
-                    print("EVENT POSTED!")
+                    self.setting_changed['scr'] = True
+                    self.any_settings_changed = True
             elif screen_mode == "windowed":
                 if self.special_flags == pygame.FULLSCREEN:
                     self.special_flags = 0
-                    pygame.event.post(GUI_TOGGLE_FULLSCREEN)
+                    self.setting_changed['fll'] = True
+                    self.any_settings_changed = True
                 elif self.special_flags != 0:
                     self.special_flags = 0
-                    POST_SPECIAL_FLAG_CHANGE(self.special_flags)
+                    self.setting_changed['scr'] = True
+                    self.any_settings_changed = True
             elif screen_mode == "fullscreen":
                 if self.special_flags != pygame.FULLSCREEN:
                     self.special_flags = pygame.FULLSCREEN
+                    self.setting_changed['fll'] = True
+                    self.any_settings_changed = True
+
+        if (event.type == pygame.USEREVENT
+                and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                and event.ui_object_id == '#settings_window.#keep_changes'):
+            if self.any_settings_changed == True:
+                if self.setting_changed['res'] == True:
+                    write_to(self.settings)
+                    pygame.event.post(GUI_WINDOW_RESOLUTION_CHANGED)
+                elif self.setting_changed['lng'] == True:
+                    write_to(self.settings)
+                    pygame.event.post(GUI_LANUAGE_CHANGED)
+                elif self.setting_changed['yrs'] == True:
+                    write_to(self.settings)
+                elif self.setting_changed['fll'] == True:
+                    write_to(self.settings)
                     pygame.event.post(GUI_TOGGLE_FULLSCREEN)
+                elif self.setting_changed['scr'] == True:
+                    if self.special_flags == 0:
+                        write_to(self.settings)
+                        POST_SPECIAL_FLAG_CHANGE(self.special_flags)
+                    else:
+                        write_to(self.settings)
+                        POST_SPECIAL_FLAG_CHANGE(self.special_flags)
+                lang.strings = lang.change_strings()
+                saved_changes = False
+                if self.setting_changed['fll'] != True:
+                    saved_changes = True
+                for key in self.setting_changed:
+                    if self.setting_changed[key] == True:
+                        self.setting_changed[key] = False
+                self.any_settings_changed = False
+                if saved_changes:
+                    pygame.event.post(GUI_CHANGES_MADE_TO_SETTINGS)
+                else:
+                    pygame.event.post(GUI_TOGGLE_FULLSCREEN)
+            else:
+                pass
 
     def update(self, time_delta):
         super().update(time_delta)
