@@ -12,13 +12,15 @@ def show_cam():
 
 
 def process_18():
+    diff = 0
     box = 0
     kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE,(2,2))
     _, img_bgr = cap.read()
-
+    width = img_bgr.shape[1]
+    
     min_green = np.array([57, 100, 100])
     max_green = np.array([97, 255, 255])
-
+    
     img = cv.cvtColor(img_bgr, cv.COLOR_BGR2HSV)
 
     mask = cv.inRange(img, min_green, max_green)
@@ -40,8 +42,9 @@ def process_18():
         midy = int((bot + top)/2)
         midx = int((right + left)/2)
         cv.circle(img_bgr, (midy, midx), 5, (255, 0, 0), 5)        
+        diff = abs(midx - width/2)
         
     img_rgb = cv.cvtColor(img_bgr, cv.COLOR_BGR2RGB) 
     img_rgb = img_rgb.swapaxes(0, 1)
      
-    return img_rgb, box
+    return img_rgb, box, diff
