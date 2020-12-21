@@ -1,9 +1,18 @@
 import cv2 as cv
 import numpy as np
 
-def process_18(img_bgr):    
+cap = cv.VideoCapture(0)
+
+def show_cam():
+    _, img_bgr = cap.read()
+    return img_bgr
+
+
+def process_18():    
     box = 0
 
+    _, img_bgr = cap.read()
+    
     min_green = np.array([57, 100, 100])
     max_green = np.array([97, 255, 255])
     
@@ -20,7 +29,7 @@ def process_18(img_bgr):
         box = np.int0(box)
         cv.drawContours(img_bgr,[box],0,(0,255,0),2)
      
-    return (box, img_bgr)
+    return img_bgr, box
         
     
     
