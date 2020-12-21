@@ -1,0 +1,54 @@
+day1:
+bugün yattım ve müzik dinledm
+opencv videolarını izliyom hem tr hem ing
+tr olan mala anlatır gibi anlatıyo tam benlik
+şu andada babamla harry potter izliyoz
+artı olarak yine şu anda logun nolduğınu anlamaya çalışıyom yanlışım varsa forgive me  
+
+day2:
+bugün çok bişi yapmadım 
+ama yüşa bana vscodedan logu falan nası düzenlicemi anlattı biraz daha git ve github videoları izlemeye gidiyorum şu an
+
+day3:
+bugün de yine video filan bi şiler izledim ve izlicem opencvle ilgili
+bi de bikaç kod tekrarı mı denir işte onu yapıyom
+
+day4:
+yine klasik video izledim bugünde thresholda baktım
+bide şimdi o geçen günki kamerada sadece yeşili gösterme şeysini thresholdla yazmaya çalışıyom inş yaparım
+
+day5:
+dün denediğim şey yanlış çalıştı sdsjdfblsdfbk ona bi daha bi uğraşıyom şimdi
+bi de video falan izliyom işte 1-2 saat daha falan izlerim
+
+day6:
+video izledim napcam nfpwjwlmwşdms
+
+day7:
+hz. youtube'un yüce kaynakları aracılığıyla opencv master'ı olmaya bir adım yaklaştım.
+
+day8:
+15. videoya geçtim bu akşam 17 yada 18e kadar biter
+
+day10:
+bugün videolarda ilerlemedim anlamadıgım bikaç bi şi vardı önceki yerlerde işte mesela
+blurring grabcut falan filan onlara baktım bi da
+
+day11:
+7 - 12. videolar arasını tekrar ettim
+
+day12:
+geçen gün 17 ya da 18e kadar gelcem dediğimde 18e gelemedim djskfjskdnsl o yüzden 18i
+izledim bugün başka da bi şi yapamadım
+
+day13:
+19. videoyu izledim bi de 12 - 14 arasına tekrar göz attım 
+
+day15:
+windowsa opencv kurmakla ugrastim bide bi iki tekrar falan yaptim
+
+day16:
+tekrar yaptım ilerlemedim videolarda
+
+day17:
+human detectionda anlamadigim bi iki bi şi vardı ona baktım ve 20. videoyu izledim

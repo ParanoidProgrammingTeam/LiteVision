@@ -1,0 +1,63 @@
+1.Gün 
+Bugün pek birşey yapmadım
+daha çok ders çalıştım 
+ama sqlite veritabanları ile ilgili
+video izledim biraz ona çalışıp
+python ile bir chat uygulaması yapmakla
+ilgili biraz araştırma yapıcam.
+Ahmet Emin Üstün
+
+2.Gün 
+Bugün pygame videoları izledim 
+ama çok fazla değil
+bir de minik bir kod tekrarı yaptım
+
+3.Gün 
+Bugün Yuşa ile birlikte pygame çalıştık
+(o bana öğretti),sonra genel pyton  videoları izledim
+
+4. Gün
+Bugün çok fazla kod çalışmadım yuşayla yazdığımız koda çalıştım
+sonra başka başka şeylere çalıştım
+
+5. Gün
+Bugün pygame dökümasyonunu biraz okudum ve raspberry pi videoları izledim.
+Dün ise yusha ile yazdığımız koda çalıştım sonra başka başka kodlara çalıştım.
+
+6. Gün
+Bugün biraz dökümandan pygame çalıştım
+
+7. Gün
+Pygame dökümasyonuna çalıştım
+
+8. Gün 
+Dökümandan okudum ve ona çalıştım
+
+9.Gün
+pygame çalıştım
+
+10. Gün
+Bugün dökümandan çalıştım
+
+11. Gün 
+scroll bar çalıştım
+
+12. Gün 
+seçme paneli ile ilgili çalıştım
+
+13. Gün 
+selection list çalıştım
+
+14. Gün 
+Bugün sadece selection list ve başka başka şeylere çalıştım
+
+15. Gün
+Textbox nasıl çalışır diye baktım
+
+16. Gün
+Gene selection listlerle uğraşıyom
+
+17. Gün
+Log yazmadığım zamanlarda baya bi pygame_gui elemanlarına çalıştı...
+bugün de UIDropDownMenu ile uğraşıcaktı.
+    -Yüşa

@@ -1,0 +1,73 @@
+Day 1:
+
+Bugün yatağımın üstünde yattım. 
+Oldukça yumusak ama üstüne çok atladığımdan bazı kısımları garip sesler çıkartıyor.
+Çekyatı koltuk yapmaya üsendiğim için 3 yastıkla ayakta kalıyorum.
+    -Ufuk
+
+Day 2:
+
+Opencv Doclarından bir kısım tutorial okudum yarın hepsini kendim de yazıcam.
+    -100% Ufuk Tarafından
+
+Day 3:
+
+Doclardaki tutorialdaki edge detectiona kadar(dahil) ilerledim.
+    -Ufuk
+
+Day 4: 
+
+Contourlara baktım. Onlar da bana baktı. Yarın bida bakıcam.
+    -Ufuk
+
+Day 5:
+Contourlara bida baktım. Bu sefer bana geri bakmadılar.
+   -Seynep aracılığıyla Ufuk
+
+Day 7:
+İki farklı konuya bakmaya çalıstım biri basta çalıstı sonra tutorialın aynısını
+yapsam da durmadan hata verdi ve çözüm bulamadım.İkincisi direkt
+matplotlib importlarken hata verdi, versiyon filan değistireyim dedim ama
+o bile hata verdi.
+    -Ufuk
+
+Day 8:
+
+Hatalardan kaçmayı basardım, contourlara baktım, histogramları farklı bir hata
+verdiği için atladım sonra da baya image processing de ne varsa okudum çok
+şey kalmamış zaten yarın histogram ve okudumlarımın kodunu yapıcam
+    -Ufuk
+
+Day 9:
+
+Histogram plus doclarda image processingin gerisini yaptım,
+bir yerden sonra matematiğnin bir parçasını bile anlamadım ama kullanabiliyorum en azından
+    -Ufuk
+
+Day 10:
+
+Image processingden feature detectiona geçtim, matematik 10 level atladı bir 
+şey anlamıyorum, hazır anlamadığım için gene bi üstünden geçeyim dedim. 
+komple okudum (matematik dısında) yarın birkaç fato bulup hepsini bi test 
+edicem sonra continue.
+    -Ufuk
+
+Day 11:
+
+Feature detection kodunu yaptım, hani çok bir şey yapmış olmuyorum aslında deneyip
+ne yaptığını görüyorum sonra bay bay, biraz daha ilerlemeden çok işe yaramicak bunlar gibi
+    -Ufuk
+
+Day 14:
+
+Doclarda kalan her şeyi kullanmicam, kullansam da fonksiyonunu bildiğim sürece sıkıntı olmayacak
+şeyler, sanırım yarın güzel yakışıklı akıllı hocam tunadan frc goallarının resmini isticem,
+umarım vardır kendim bulmak istemiyom
+    -Ufuk
+
+Day 17:
+
+Litevisiona kod siftahsına basladım, yazdığım kodu gerektiği gibi değistirdim. 
+hani şuan yapıcak opencv filan kalmadı cebellese cebellese yüsaya danısa 
+danısa cidden bi program yapmaya çalısıcam
+    -Ufuk
