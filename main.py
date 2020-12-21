@@ -33,5 +33,5 @@ if __name__ == "__main__":
             print("object cleaned")
             print("restarting loop")
         else:
-            print("stopping main")
+            print("no changes..\nstopping main")
             is_running = False

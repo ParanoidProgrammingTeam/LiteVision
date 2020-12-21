@@ -4,6 +4,7 @@ import pygame_gui
 
 from litevision.res.glob import *
 from litevision.lib.database import *
+from litevision.lib import vision
 
 
 class HandlerForMenuBarEvents:
@@ -36,3 +37,7 @@ class HandlerForMenuBarEvents:
                 self.stream_started = False
                 event.ui_element.set_image(sp_icon)
                 pygame.event.post(GUI_STREAM_WINDOW_PAUSE)
+        if (event.type == pygame.USEREVENT
+                and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
+                and event.ui_object_id == '#menu_bar.#start_processing'):
+            pass
