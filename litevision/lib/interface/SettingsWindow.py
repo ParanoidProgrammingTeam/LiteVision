@@ -86,7 +86,7 @@ class SettingsWindow(UIWindow):
                                   self.manager, self, self, '#year_menu_label')
         year_drop_down_rect = pygame.Rect((12, 156), (84, 24))
         year_drop_down_rect.topleft = year_label_rect.bottomleft
-        self.year_selections = ['2018', '2019', '2020']
+        self.year_selections = ['2018', '2017', '2016']
         self.year_drop_down_menu = UIDropDownMenu(self.year_selections,
                                                   self.settings["year"],
                                                   year_drop_down_rect,

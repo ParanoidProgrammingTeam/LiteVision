@@ -16,8 +16,9 @@ import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
 
 import litevision.lib.database as database
-from litevision.res.glob import *
 from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents, StreamWindow
+from litevision.res.glob import *
+from litevision.lib import vision
 
 
 class GUInterface:
@@ -93,7 +94,7 @@ class GUInterface:
 
         ### stream window
         size_tuple = ((GUI_OFFSET_VALUE + (self.resolution[0] / 5),
-                       GUI_OFFSET_VALUE + (self.resolution[1] / 10)),
+                       GUI_OFFSET_VALUE + (self.resolution[1] / 11)),
                       (((self.resolution[0] / 3) * 2,
                         (self.resolution[1] / 3) * 2)))
         stream_window_rect = pygame.Rect(size_tuple)
@@ -119,7 +120,8 @@ class GUInterface:
         if event.type == pygame.QUIT:
             self.is_running = False
 
-        self.menu_events.process_events(event, self.menu_bar)
+        self.menu_events.process_events(event, self.menu_bar,
+                                        self.stream_window)
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
@@ -179,11 +181,25 @@ class GUInterface:
     def run(self):
         # main loop
         while self.is_running:
-            time_delta = self.clock.tick(60) / 1000.0
-            # sets to 60 fps and i <b>think<\b> returns time between ticks
+            time_delta = self.clock.tick(80) / 1000.0
+            # sets to 80 fps and i <b>think<\b> returns time between ticks
 
             for event in pygame.event.get():
                 self.on_event(event)
+
+            # camera footage
+            if self.menu_events.stream_started == True:
+                # processing
+                if self.menu_events.processing:
+                    frame, _ = vision.process_18()
+                else:
+                    frame = vision.show_cam()
+                screen = pygame.Surface([640, 480])
+                pygame.surfarray.blit_array(screen, frame)
+                screen = pygame.transform.scale(
+                    screen, (self.stream_window.rect.width,
+                             self.stream_window.rect.height))
+                self.stream_window.set_image(screen)
 
             self.manager.update(time_delta)
 
