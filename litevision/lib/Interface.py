@@ -17,7 +17,7 @@ from pygame_gui.elements.ui_button import UIButton
 
 import litevision.lib.database as database
 from litevision.res.glob import *
-from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents
+from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents, StreamWindow
 
 
 class GUInterface:
@@ -92,7 +92,14 @@ class GUInterface:
         self.settings_window = None
 
         ### stream window
-        #### self.stream_window = StreamWindow()
+        size_tuple = ((GUI_OFFSET_VALUE + (self.resolution[0] / 5),
+                       GUI_OFFSET_VALUE + (self.resolution[1] / 10)),
+                      (((self.resolution[0] / 3) * 2,
+                        (self.resolution[1] / 3) * 2)))
+        stream_window_rect = pygame.Rect(size_tuple)
+        self.stream_surf = pygame.Surface(size_tuple[1])
+        self.stream_window = StreamWindow(stream_window_rect, self.stream_surf,
+                                          self.manager)
 
         ## other
         ### menubar

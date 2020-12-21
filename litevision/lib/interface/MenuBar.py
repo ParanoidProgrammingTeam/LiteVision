@@ -150,20 +150,21 @@ class MenuBar(UIElement):
     def _open_menu(self, event):
         if self.open_menu is not None:
             self.open_menu.kill()
-        menu_key = event.ui_object_id.split('.')[-1]
-        menu_size = ((len(self.menu_data[menu_key]['items']) * 20) + 3)
-        item_data = [(item_data['display_name'], item_key) for item_key,
-                     item_data in self.menu_data[menu_key]['items'].items()]
-        menu_rect = pygame.Rect((0, 0), (200, menu_size))
-        menu_rect.topleft = event.ui_element.rect.topright
-        top_ui_layer = self.ui_manager.get_sprite_group().get_top_layer()
-        self.open_menu = UISelectionList(menu_rect,
-                                         item_data,
-                                         self.ui_manager,
-                                         starting_height=top_ui_layer,
-                                         parent_element=self,
-                                         object_id=menu_key + '_items')
-        self.ui_manager.set_focus_set(self)
+        if event.ui_object_id != '#menu_bar.#start_processing':
+            menu_key = event.ui_object_id.split('.')[-1]
+            menu_size = ((len(self.menu_data[menu_key]['items']) * 20) + 3)
+            item_data = [(item_data['display_name'], item_key) for item_key,
+                         item_data in self.menu_data[menu_key]['items'].items()]
+            menu_rect = pygame.Rect((0, 0), (200, menu_size))
+            menu_rect.topleft = event.ui_element.rect.topright
+            top_ui_layer = self.ui_manager.get_sprite_group().get_top_layer()
+            self.open_menu = UISelectionList(menu_rect,
+                                             item_data,
+                                             self.ui_manager,
+                                             starting_height=top_ui_layer,
+                                             parent_element=self,
+                                             object_id=menu_key + '_items')
+            self.ui_manager.set_focus_set(self)
 
     def rebuild_from_changed_theme_data(self):
         has_any_changed = False

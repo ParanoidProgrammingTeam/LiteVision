@@ -3,6 +3,7 @@ import numpy as np
 
 cap = cv.VideoCapture(0)
 
+
 def show_cam():
     _, img_bgr = cap.read()
     img_rgb = cv.cvtColor(img_bgr, cv.COLOR_BGR2RGB)
@@ -10,14 +11,14 @@ def show_cam():
     return img_rgb
 
 
-def process_18():    
+def process_18():
     box = 0
 
     _, img_bgr = cap.read()
-    
+
     min_green = np.array([57, 100, 100])
     max_green = np.array([97, 255, 255])
-    
+
     img = cv.cvtColor(img_bgr, cv.COLOR_BGR2HSV)
 
     mask = cv.inRange(img, min_green, max_green)
@@ -35,4 +36,3 @@ def process_18():
     img_rgb = img_rgb.swapaxes(0, 1)
      
     return img_rgb, box
-        
