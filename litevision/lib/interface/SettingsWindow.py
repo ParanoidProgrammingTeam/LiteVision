@@ -200,7 +200,8 @@ class SettingsWindow(UIWindow):
                         POST_SPECIAL_FLAG_CHANGE(self.special_flags)
                 lang.strings = lang.change_strings()
                 saved_changes = False
-                if self.setting_changed['fll'] != True:
+                if self.setting_changed['res'] == True or self.setting_changed[
+                        'scr'] == True:
                     saved_changes = True
                 for key in self.setting_changed:
                     if self.setting_changed[key] == True:
