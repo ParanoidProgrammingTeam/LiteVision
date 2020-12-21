@@ -5,7 +5,9 @@ cap = cv.VideoCapture(0)
 
 def show_cam():
     _, img_bgr = cap.read()
-    return img_bgr
+    img_rgb = cv.cvtColor(img_bgr, cv.COLOR_BGR2RGB)
+    img_rgb = img_rgb.swapaxes(0, 1)
+    return img_rgb
 
 
 def process_18():    
@@ -29,8 +31,8 @@ def process_18():
         box = np.int0(box)
         cv.drawContours(img_bgr,[box],0,(0,255,0),2)
      
-    return img_bgr, box
-        
-    
-    
+    img_rgb = cv.cvtColor(img_bgr, cv.COLOR_BGR2RGB) 
+    img_rgb = img_rgb.swapaxes(0, 1)
+     
+    return img_rgb, box
         
