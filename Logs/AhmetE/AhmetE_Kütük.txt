@@ -61,3 +61,5 @@ Gene selection listlerle uğraşıyom
 Log yazmadığım zamanlarda baya bi pygame_gui elemanlarına çalıştı...
 bugün de UIDropDownMenu ile uğraşıcaktı.
     -Yüşa
+
+.
