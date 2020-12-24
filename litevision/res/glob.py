@@ -32,10 +32,11 @@ def POST_SPECIAL_FLAG_CHANGE(text):
             'text': text
         })
     pygame.event.post(GUI_SCREEN_SPECIAL_FLAGS_CHANGED)
-    # pygame gui elemanları için anchorları tek tek yazmak üşendirici olur gibi geldi direkt buraya değişkenlere
 
 
+# pygame gui elemanları için anchorları tek tek yazmak üşendirici olur gibi geldi direkt buraya değişkenlere
 # yazıcam çok daha rahat olur bence müq
+
 GUI_ANCHORS_BOTTOM_LEFT = {
     'left': 'left',
     'right': 'left',
@@ -56,9 +57,11 @@ GUI_ANCHORS_BOTTOM_RIGHT = {
 }
 # top left zaten default diye eklemedim
 
+# paths
 APP_SETTINGS_PATH = os.path.join('litevision', 'res', 'settings.json')
 LITEVISION_SETTINGS_PATH = os.path.join('litevision', 'res', 'litevision.json')
 THEME_FILE = os.path.join('litevision', 'res', 'theme.json')
+# i used os.path.join for it to be the most cross-platform as possible
 
 MENU_BAR_DATA_DICT = {
     '#icon': {
