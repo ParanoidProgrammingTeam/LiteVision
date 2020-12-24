@@ -55,3 +55,6 @@ human detectionda anlamadigim bi iki bi şi vardı ona baktım ve 20. videoyu iz
 
 day18:
 haar cascade çalıştım
+
+day19:
+haar cascade çalıştım vol2
