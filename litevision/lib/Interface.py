@@ -1,12 +1,14 @@
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~TODO~~~~~~~~~~~~~~~~~~~~~~~~~~
 - I just started I don't even know lol
-- Settings Window [~20%]
-- Stream Window [~0%]
-- This Class [~15%]
-- Menu Bar or Side Menu Bar [~10%]
+- Settings Window [~60%]
+- Stream Window [~90%]
+- This Class [~50%]
+- Menu Bar or Side Menu Bar [~40%]
 - a lot more
-- MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
+- |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
+- rgb picker thingy pdfksdlfkpşlf
+- team number selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -194,7 +196,7 @@ class GUInterface:
                     frame, _ = vision.process_18()
                 else:
                     frame = vision.show_cam()
-                screen = pygame.Surface([640, 480])
+                screen = pygame.Surface([frame.shape[0], frame.shape[1]])
                 pygame.surfarray.blit_array(screen, frame)
                 screen = pygame.transform.scale(
                     screen, (self.stream_window.rect.width,
