@@ -153,8 +153,9 @@ class MenuBar(UIElement):
         if event.ui_object_id != '#menu_bar.#start_processing':
             menu_key = event.ui_object_id.split('.')[-1]
             menu_size = ((len(self.menu_data[menu_key]['items']) * 20) + 3)
-            item_data = [(item_data['display_name'], item_key) for item_key,
-                         item_data in self.menu_data[menu_key]['items'].items()]
+            item_data = [(item_data['display_name'], item_key)
+                         for item_key, item_data in self.menu_data[menu_key]
+                         ['items'].items()]
             menu_rect = pygame.Rect((0, 0), (200, menu_size))
             menu_rect.topleft = event.ui_element.rect.topright
             top_ui_layer = self.ui_manager.get_sprite_group().get_top_layer()
@@ -236,6 +237,14 @@ class MenuBar(UIElement):
                     'user_type': pygame_gui.UI_BUTTON_START_PRESS,
                     'ui_element': self.start_button,
                     'ui_object_id': self.start_button.most_specific_combined_id
+                }
+                pygame.event.post(
+                    pygame.event.Event(pygame.USEREVENT, event_data))
+            elif self.rgb_button.hover_point(x, y):
+                event_data = {
+                    'user_type': pygame_gui.UI_BUTTON_START_PRESS,
+                    'ui_element': self.rgb_button,
+                    'ui_object_id': self.rgb_button.most_specific_combined_id
                 }
                 pygame.event.post(
                     pygame.event.Event(pygame.USEREVENT, event_data))

@@ -3,12 +3,14 @@
 - I just started I don't even know lol
 - Settings Window [~60%]
 - Stream Window [~90%]
-- This Class [~50%]
-- Menu Bar or Side Menu Bar [~40%]
+- This Class [~55%]
+- Menu Bar or Side Menu Bar [~50%]
 - a lot more
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
-- rgb picker thingy pdfksdlfkpşlf
+- |Done i think|rgb picker thingy pdfksdlfkpşlf
 - team number selection
+- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk and just deal with the fullscreen shite already
+- stop stream when #keep_changes is pressed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -58,7 +60,7 @@ class GUInterface:
         self.background.fill(pygame.Color("#2F4F4F"))
 
         # manager
-        theme_path = os.path.join('litevision', 'res', 'theme.json')
+        theme_path = THEME_FILE
         self.manager = pygame_gui.UIManager(self.window_dimensions, theme_path)
 
         # attributes / ui elements
@@ -183,8 +185,8 @@ class GUInterface:
     def run(self):
         # main loop
         while self.is_running:
-            time_delta = self.clock.tick(80) / 1000.0
-            # sets to 80 fps and i <b>think<\b> returns time between ticks
+            time_delta = self.clock.tick(60) / 1000.0
+            # sets to 60 fps and i <b>think<\b> returns time between ticks
 
             for event in pygame.event.get():
                 self.on_event(event)

@@ -91,5 +91,21 @@
             "border_width": "0",
             "shape_corner_radius": "2"
         }
+    },
+    "#start_processing": {
+        "colours": {
+            "normal_bg": "#2F4F4F"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        }
     }
 }
