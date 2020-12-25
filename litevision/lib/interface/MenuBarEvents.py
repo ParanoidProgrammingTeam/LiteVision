@@ -14,7 +14,8 @@ class HandlerForMenuBarEvents:
         self.stream_started = False
         self.processing = False
 
-        self.rgb_picker = None
+        self.min_rgb_picker = None
+        self.max_rgb_picker = None
 
         # bunu kullanır mıyız emin değilim direkt eventle de halledebilirz sanırım ama yeniden açıldığında
         # son bırakıldığı halde olması için diye düşündüm
@@ -43,41 +44,82 @@ class HandlerForMenuBarEvents:
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
                 and event.ui_object_id == '#menu_bar.#rgb_button'):
-            self.rgb_dict = self.litevison_settings["color"]["rgb"]
-            rgb_tuple = (int(self.rgb_dict["r"]), int(self.rgb_dict["g"]),
-                         int(self.rgb_dict["b"]))
-            self.rgb_color = pygame.Color(rgb_tuple)
-            self.hsv_color = self.rgb_color.hsva
-            if self.rgb_picker == None:
+            self.min_rgb_dict = self.litevison_settings["min_color"]["rgb"]
+            min_rgb_tuple = (int(self.min_rgb_dict["r"]),
+                             int(self.min_rgb_dict["g"]),
+                             int(self.min_rgb_dict["b"]))
+            self.min_rgb_color = pygame.Color(min_rgb_tuple)
+            self.min_hsv_color = self.min_rgb_color.hsva
+            self.max_rgb_dict = self.litevison_settings["max_color"]["rgb"]
+            max_rgb_tuple = (int(self.max_rgb_dict["r"]),
+                             int(self.max_rgb_dict["g"]),
+                             int(self.max_rgb_dict["b"]))
+            self.max_rgb_color = pygame.Color(max_rgb_tuple)
+            self.max_hsv_color = self.max_rgb_color.hsva
+            if self.min_rgb_picker == None:
                 # open color picker or post event to open it
-                self.rgb_picker = pygame_gui.windows.UIColourPickerDialog(
-                    rect=pygame.Rect((100, 200), (390, 390)),
+                self.min_rgb_picker = pygame_gui.windows.UIColourPickerDialog(
+                    rect=pygame.Rect((64, 200), (390, 390)),
                     manager=self.ui_manager,
-                    initial_colour=self.rgb_color)
+                    window_title='Minimum',
+                    initial_colour=self.min_rgb_color)
+                self.max_rgb_picker = pygame_gui.windows.UIColourPickerDialog(
+                    rect=pygame.Rect((424, 200), (390, 390)),
+                    manager=self.ui_manager,
+                    window_title='Maximum',
+                    initial_colour=self.max_rgb_color)
             else:
                 # close
-                self.rgb_picker.kill()
-                self.rgb_picker = None
+                self.min_rgb_picker.kill()
+                self.min_rgb_picker = None
+                self.max_rgb_picker.kill()
+                self.max_rgb_picker = None
 
         if (event.type == pygame.USEREVENT and event.user_type
                 == pygame_gui.UI_COLOUR_PICKER_COLOUR_PICKED):
-            self.rgb_color = event.colour
-            self.rgb_dict = {
-                'r': str(self.rgb_color.r),
-                'g': str(self.rgb_color.g),
-                'b': str(self.rgb_color.b)
-            }
-            self.hsv_color = self.rgb_color.hsva
-            self.hsv_dict = {
-                'h': str(self.hsv_color[0]),
-                's': str(self.hsv_color[1]),
-                'v': str(self.hsv_color[2]),
-                'a': str(self.hsv_color[3])
-            }
-            color_dict = {'rgb': self.rgb_dict, 'hsva': self.hsv_dict}
-            self.litevison_settings["color"] = color_dict
+            min_color_dict = self.litevison_settings["min_color"]
+            max_color_dict = self.litevison_settings["max_color"]
+            if event.ui_element == self.min_rgb_picker:
+                self.min_rgb_color = event.colour
+                self.min_rgb_dict = {
+                    'r': str(self.min_rgb_color.r),
+                    'g': str(self.min_rgb_color.g),
+                    'b': str(self.min_rgb_color.b)
+                }
+                self.min_hsv_color = self.min_rgb_color.hsva
+                self.min_hsv_dict = {
+                    'h': str(self.min_hsv_color[0]),
+                    's': str(self.min_hsv_color[1]),
+                    'v': str(self.min_hsv_color[2]),
+                    'a': str(self.min_hsv_color[3])
+                }
+                min_color_dict = {
+                    'rgb': self.min_rgb_dict,
+                    'hsva': self.min_hsv_dict
+                }
+                self.min_rgb_picker = None
+            if event.ui_element == self.max_rgb_picker:
+                self.max_rgb_color = event.colour
+                self.max_rgb_dict = {
+                    'r': str(self.max_rgb_color.r),
+                    'g': str(self.max_rgb_color.g),
+                    'b': str(self.max_rgb_color.b)
+                }
+                self.max_hsv_color = self.max_rgb_color.hsva
+                self.max_hsv_dict = {
+                    'h': str(self.max_hsv_color[0]),
+                    's': str(self.max_hsv_color[1]),
+                    'v': str(self.max_hsv_color[2]),
+                    'a': str(self.max_hsv_color[3])
+                }
+                max_color_dict = {
+                    'rgb': self.max_rgb_dict,
+                    'hsva': self.max_hsv_dict
+                }
+                self.max_rgb_picker = None
+            self.litevison_settings["min_color"] = min_color_dict
+            self.litevison_settings["max_color"] = max_color_dict
             write_to(self.litevison_settings, LITEVISION_SETTINGS_PATH)
-            self.rgb_picker = None
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
