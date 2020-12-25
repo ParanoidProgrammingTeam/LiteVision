@@ -17,20 +17,15 @@ if __name__ == "__main__":
         print("stopped running")
 
         settings = database.read_json()
-
         # check changes that require reset and if any are made instead of completely killing everything
         # just kill the object app set it to None and restart the loop
-        print(screen_mode, "and", settings['screen_mode'])
-        print(resolution, "and", settings['resolution'])
+        print(screen_mode, "->", settings['screen_mode'])
+        print(resolution, "->", settings['resolution'])
         if screen_mode != settings['screen_mode']:
-            print("mode change detected!")
             app = None
-            print("object cleaned")
             print("restarting loop")
         elif resolution != settings['resolution']:
-            print("size change detected!")
             app = None
-            print("object cleaned")
             print("restarting loop")
         else:
             print("no changes..\nstopping main")
