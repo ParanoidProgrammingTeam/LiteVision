@@ -58,3 +58,6 @@ haar cascade çalıştım
 
 day19:
 haar cascade çalıştım vol2
+
+day20:
+corner detectiona bi daha baktım ve hala playlistin son videosunu izlemedim...
