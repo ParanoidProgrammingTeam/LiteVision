@@ -52,3 +52,12 @@ tekrar yaptım ilerlemedim videolarda
 
 day17:
 human detectionda anlamadigim bi iki bi şi vardı ona baktım ve 20. videoyu izledim
+
+day18:
+haar cascade çalıştım
+
+day19:
+haar cascade çalıştım vol2
+
+day20:
+corner detectiona bi daha baktım ve hala playlistin son videosunu izlemedim...
