@@ -3,14 +3,13 @@
 - I just started I don't even know lol
 - Settings Window [~60%]
 - Stream Window [~90%]
-- This Class [~55%]
+- This Class [~64%]
 - Menu Bar or Side Menu Bar [~50%]
 - a lot more
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
-- |Done i think|rgb picker thingy pdfksdlfkpşlf
+- |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
 - update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk and just deal with the fullscreen shite already
-- stop stream when #keep_changes is pressed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -91,7 +90,14 @@ class GUInterface:
                                        self.manager,
                                        object_id='#min_ui_button',
                                        anchors=GUI_ANCHORS_TOP_RIGHT)
-
+        ### fullscreen button
+        #### self.fullscreen_button_rect = pygame.Rect((5, -48 - GUI_OFFSET_VALUE),
+        ####                                           (48, 48))
+        #### self.fullscreen_button = UIButton(self.fullscreen_button_rect,
+        ####                                   '',
+        ####                                   self.manager,
+        ####                                   object_id='#fullscreen',
+        ####                                   anchors=GUI_ANCHORS_BOTTOM_RIGHT)
         ## windows
         ### settings window
         self.settings_window = None
