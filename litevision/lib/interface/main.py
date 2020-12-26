@@ -13,12 +13,13 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-from pygame_gui.elements.ui_button import UIButton
 import pygame_gui
 import pygame
 import os
+from pygame_gui.elements.ui_button import UIButton
 
-from litevision.lib.interface.menu_bar import MenuBar, HandlerForMenuBarEvents
+from litevision.lib.interface.menu_bar import MenuBar
+from litevision.lib.interface.menu_bar_events import HandlerForMenuBarEvents
 from litevision.lib.interface.window_settings import SettingsWindow
 from litevision.lib.interface.window_stream import StreamWindow
 

@@ -143,7 +143,7 @@ class MenuBar(UIElement):
         if self.open_menu is not None:
             self.open_menu.kill()
             self.open_menu = None
-        
+
         if self._selected_menu is not None:
             self._selected_menu.unselect()
             self._selected_menu = None
@@ -155,14 +155,14 @@ class MenuBar(UIElement):
     def _open_menu(self, event):
         if self.open_menu is not None:
             self.open_menu.kill()
-        
+
         if event.ui_object_id != '#menu_bar.#start_processing':
             menu_key = event.ui_object_id.split('.')[-1]
             menu_size = ((len(self.menu_data[menu_key]['items']) * 20) + 3)
             item_data = [(item_data['display_name'], item_key)
                          for item_key, item_data in self.menu_data[menu_key]
                          ['items'].items()]
-        
+
             menu_rect = pygame.Rect((0, 0), (200, menu_size))
             menu_rect.topleft = event.ui_element.rect.topright
             top_ui_layer = self.ui_manager.get_sprite_group().get_top_layer()
@@ -172,7 +172,7 @@ class MenuBar(UIElement):
                                              starting_height=top_ui_layer,
                                              parent_element=self,
                                              object_id=menu_key + '_items')
-        
+
             self.ui_manager.set_focus_set(self)
 
     def rebuild_from_changed_theme_data(self):
@@ -180,14 +180,14 @@ class MenuBar(UIElement):
 
         bg_color = self.ui_theme.get_colour_or_gradient(
             'normal_bg', self.combined_element_ids)
-        
+
         if bg_color != self.bg_color:
             self.bg_color = bg_color
             has_any_changed = True
 
         border_color = self.ui_theme.get_colour_or_gradient(
             'normal_border', self.combined_element_ids)
-        
+
         if border_color != self.border_color:
             self.border_color = border_color
             has_any_changed = True
@@ -195,7 +195,7 @@ class MenuBar(UIElement):
         # misc
         shape_type_str = self.ui_theme.get_misc_data('shape',
                                                      self.combined_element_ids)
-        
+
         if (shape_type_str is not None and shape_type_str in ['rectangle']
                 and shape_type_str != self.shape_type):
             self.shape_type = shape_type_str
@@ -227,7 +227,8 @@ class MenuBar(UIElement):
 
         self.on_fresh_drawable_shape_ready()
 
-    def process_event(self, event: pygame.event.Event): # -> bool # pylinter desteklemiyor düzeltirsin burayı
+    def process_event(self, event: pygame.event.Event
+                      ):  # -> bool # pylinter desteklemiyor düzeltirsin burayı
         consumed_event = False
         if (self is not None and event.type == pygame.MOUSEBUTTONDOWN
                 and event.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]):
@@ -294,5 +295,3 @@ class MenuBar(UIElement):
 
         if self.menu_bar_container.layer_thickness != self.layer_thickness:
             self.layer_thickness = self.menu_bar_container.layer_thickness
-
-    raise Exception("AHAHAHAHHAHAHAHAHAHHA")
