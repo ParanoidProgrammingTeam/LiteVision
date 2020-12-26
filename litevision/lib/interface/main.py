@@ -13,15 +13,18 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-import os
-import pygame
-import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
+import pygame_gui
+import pygame
+import os
+
+from litevision.lib.interface.menu_bar import MenuBar, HandlerForMenuBarEvents
+from litevision.lib.interface.window_settings import SettingsWindow
+from litevision.lib.interface.window_stream import StreamWindow
 
 import litevision.lib.database as database
-from litevision.lib.interface import SettingsWindow, MenuBar, HandlerForMenuBarEvents, StreamWindow
-from litevision.res.glob import *
 from litevision.lib import vision
+from litevision.res.glob import *
 
 
 class GUInterface:
