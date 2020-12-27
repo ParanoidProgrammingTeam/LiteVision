@@ -120,6 +120,15 @@ class HandlerForMenuBarEvents:
             self.litevison_settings["min_color"] = min_color_dict
             self.litevison_settings["max_color"] = max_color_dict
             write_to(self.litevison_settings, LITEVISION_SETTINGS_PATH)
+            if self.processing:
+                self.processing = False
+                pygame.event.post(
+                    pygame.event.Event(
+                        pygame.USEREVENT, {
+                            "user_type": pygame_gui.UI_BUTTON_START_PRESS,
+                            "ui_element": "not needed",
+                            "ui_object_id": '#menu_bar.#start_processing'
+                        }))
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
