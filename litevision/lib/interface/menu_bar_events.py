@@ -1,9 +1,9 @@
-import os
-import pygame
 import pygame_gui
+import pygame
+import os
 
-from litevision.res.glob import *
 from litevision.lib.database import *
+from litevision.res.glob import *
 
 
 class HandlerForMenuBarEvents:

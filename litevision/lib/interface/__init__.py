@@ -1,6 +1,7 @@
-from litevision.lib.interface.SettingsWindow import SettingsWindow
-from litevision.lib.interface.StreamWindow import StreamWindow
-from litevision.lib.interface.MenuBar import MenuBar
-from litevision.lib.interface.MenuBarEvents import HandlerForMenuBarEvents
+from litevision.lib.interface.menu_bar_events import HandlerForMenuBarEvents
+from litevision.lib.interface.window_settings import SettingsWindow
+from litevision.lib.interface.window_stream import StreamWindow
+from litevision.lib.interface.main import GUInterface
+from litevision.lib.interface.menu_bar import MenuBar
 
-__all__ = [SettingsWindow, StreamWindow, MenuBar, HandlerForMenuBarEvents]
+__all__ = [GUInterface, SettingsWindow, StreamWindow, MenuBar, HandlerForMenuBarEvents]

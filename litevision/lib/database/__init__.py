@@ -1,5 +1,5 @@
-import json
 from litevision.res.glob import *
+import json
 
 
 def read_json(path=APP_SETTINGS_PATH):

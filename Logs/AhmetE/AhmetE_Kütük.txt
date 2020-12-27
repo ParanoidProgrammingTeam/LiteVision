@@ -64,3 +64,6 @@ bugün de UIDropDownMenu ile uğraşıcaktı.
 
 20. Gün
 pygame.imagele uğraşıyorum
+
+21. Gün 
+pygame.imagele uğraşıyorum hala
