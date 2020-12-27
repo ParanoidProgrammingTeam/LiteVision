@@ -234,7 +234,7 @@ class SettingsWindow(UIWindow):
                     pygame.event.post(GUI_CHANGES_MADE_TO_SETTINGS)
         
             else:
-                print("tunapro1234")
+                print("no change to keep")
 
     def update(self, time_delta):
         super().update(time_delta)
