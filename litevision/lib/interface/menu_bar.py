@@ -227,8 +227,7 @@ class MenuBar(UIElement):
 
         self.on_fresh_drawable_shape_ready()
 
-    def process_event(self, event: pygame.event.Event
-                      ):  # -> bool # pylinter desteklemiyor düzeltirsin burayı
+    def process_event(self, event: pygame.event.Event) -> bool:
         consumed_event = False
         if (self is not None and event.type == pygame.MOUSEBUTTONDOWN
                 and event.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]):
