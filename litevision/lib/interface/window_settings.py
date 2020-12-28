@@ -86,7 +86,7 @@ class SettingsWindow(UIWindow):
             current_screen_mode = self.scr_mode_selections[2]
 
         self.scr_mode_menu = UIDropDownMenu(self.scr_mode_selections,
-                                            current_screen_mode,
+                                            current_screen_mode.capitalize(),
                                             scr_mode_menu_rect, self.manager,
                                             self, self, '#screen_menu')
 
@@ -116,10 +116,9 @@ class SettingsWindow(UIWindow):
 
         lang_drop_down_rect = pygame.Rect((200, 156), (84, 24))
         lang_drop_down_rect.topleft = lang_label_rect.bottomleft
-        self.lang_drop_down = UIDropDownMenu(GUI_LANGUAGES,
-                                             self.settings["language"],
-                                             lang_drop_down_rect, self.manager,
-                                             self, self, '#lang_menu')
+        self.lang_drop_down = UIDropDownMenu(
+            GUI_LANGUAGES, self.settings["language"].capitalize(),
+            lang_drop_down_rect, self.manager, self, self, '#lang_menu')
 
         # keep changes? ↓↓
         save_button_x_size = ((len(lang.strings['keep_changes']) * 10) - 18)
@@ -145,7 +144,7 @@ class SettingsWindow(UIWindow):
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.lang_drop_down):
-            self.settings["language"] = event.text
+            self.settings["language"] = event.text.lower()
             self.setting_changed['lng'] = True
             self.any_settings_changed = True
 
@@ -307,7 +306,7 @@ class SettingsWindow(UIWindow):
 
     @staticmethod
     def change_scr_for_lang(language_settings, language_name: str, event):
-        new_data = event.text
+        new_data = event.text.lower()
         if language_settings == language_name:
             if event.text == lang.strings['screen_mode_list'][0]:
                 new_data = "windowed"

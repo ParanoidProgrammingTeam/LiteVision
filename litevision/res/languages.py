@@ -10,8 +10,8 @@ if language_setting == "turkce":
         'language_label': 'Dil Seçiniz:',
         'resolution_label': 'Ekran Çözünürlüğü:',
         'screen_mode_label': 'Pencere Ayarı:',
-        'screen_mode_list': ["çerçeveli", "çerçevesiz"],
-        'keep_changes': 'değişiklikleri kaydet?',
+        'screen_mode_list': ["Çerçeveli", "Çerçevesiz"],
+        'keep_changes': 'Değişiklikleri Kaydet?',
         'error': 'Hata',
         'keep_changes_hover': 'tüm değişiklikleri kaydet ve uygula?',
         'html_message_error_01':
@@ -26,8 +26,8 @@ else:
         'language_label': 'Change Language:',
         'resolution_label': 'Screen Resolution:',
         'screen_mode_label': 'Window Mode:',
-        'screen_mode_list': ["windowed", "borderless"],
-        'keep_changes': 'keep changes?',
+        'screen_mode_list': ["Windowed", "Borderless"],
+        'keep_changes': 'Keep Changes?',
         'error': 'Error',
         'keep_changes_hover': 'keep and apply all changes?',
         'html_message_error_01':
@@ -48,8 +48,8 @@ def change_strings():
             'language_label': 'Dil Seçiniz:',
             'resolution_label': 'Ekran Çözünürlüğü:',
             'screen_mode_label': 'Pencere Ayarı:',
-            'screen_mode_list': ["çerçeveli", "çerçevesiz"],
-            'keep_changes': 'değişiklikleri kaydet?',
+            'screen_mode_list': ["Çerçeveli", "Çerçevesiz"],
+            'keep_changes': 'Değişiklikleri Kaydet?',
             'error': 'Hata',
             'keep_changes_hover': 'tüm değişiklikleri kaydet ve uygula?',
             'html_message_error_01':
@@ -64,8 +64,8 @@ def change_strings():
             'language_label': 'Change Language:',
             'resolution_label': 'Screen Resolution:',
             'screen_mode_label': 'Window Mode:',
-            'screen_mode_list': ["windowed", "borderless"],
-            'keep_changes': 'keep changes?',
+            'screen_mode_list': ["Windowed", "Borderless"],
+            'keep_changes': 'Keep Changes?',
             'error': 'Error',
             'keep_changes_hover': 'keep and apply all changes?',
             'html_message_error_01':

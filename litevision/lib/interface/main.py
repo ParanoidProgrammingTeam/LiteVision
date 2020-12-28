@@ -10,7 +10,7 @@
 - |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
 - update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk 
-- and just deal with the fullscreen shite already [~50%] -- it needs a dynamic icon thing and ahh im tired
+- and just deal with the fullscreen shite already [~80%]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -200,9 +200,10 @@ class GUInterface:
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
-                and event.ui_element == self.fullscreen_button) or (event.type == pygame.USEREVENT
-                and event.user_type == pygame_gui.UI_BUTTON_PRESSED
-                and event.ui_element == self.unfull_button):
+                and event.ui_element == self.fullscreen_button) or (
+                    event.type == pygame.USEREVENT
+                    and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                    and event.ui_element == self.unfull_button):
             if event.ui_element == self.fullscreen_button:
                 self.fullscreen_button.visible = 0
                 self.unfull_button.visible = 1
