@@ -7,6 +7,11 @@ from litevision.res.glob import *
 
 
 class HandlerForMenuBarEvents:
+    """
+    Sınıf ismi çok uzun evet sorgulamayın teşekkürler.
+    :param window_surface: ana ekranın pygame.surface'i
+    :param ui_manager: ui yöneticisi
+    """
     def __init__(self, window_surface, ui_manager):
         self.window_surface = window_surface
         self.ui_manager = ui_manager

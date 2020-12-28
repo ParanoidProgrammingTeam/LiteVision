@@ -226,7 +226,6 @@ class GUInterface:
         self.manager.process_events(event)
 
     def kill(self):
-        print("going dark")
         pygame.quit()
 
     def run(self):

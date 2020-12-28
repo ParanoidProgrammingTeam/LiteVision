@@ -17,6 +17,7 @@ class SettingsWindow(UIWindow):
     
     :param rect: koordinat ve ekran büyüklüğü
     :param manager: ui yöneticisi muhtemelen tüm arayüzün yöneticisi olucak burdaki
+    :param window_surface: ana ekranın pygame.surface'i buna hata penceresini ortalamak için ihtiyacımız var sodkfsedfkjsplofk
     """
     def __init__(self, rect, manager, window_surface):
         super().__init__(rect,

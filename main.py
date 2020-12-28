@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
         app = GUInterface()
         app.run()
-        app.kill()
         print("stopped running")
+        app.kill()
 
         settings = database.read_json()
         # check changes that require reset and if any are made instead of completely killing everything

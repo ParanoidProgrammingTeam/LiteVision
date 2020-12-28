@@ -1,3 +1,21 @@
+"""
+This file is for the languages that the ui will use.
+
+If you want to add strings for a language that isn't here first add the name of the language to GUI_LANGUAGES
+in glob.py -it doesn't matter if the letters are big or small as it will always be written in small to the json file, the way
+it is written in that list is only for how it will be seen in the settings window-
+
+Then, under line 14 add an elif statement in the middle of the already existing if-else statement. Here the string value
+that it should compare 'language_setting' to is the all lowercase of what the string name is in GUI_LANGUAGES
+
+In the elif statement make a dict with the same keys as the dicts that exist but, write the values as they are in the language you are adding
+
+Finally, copy the elif statement you wrote and paste to the change_strings function as and IF statement.
+
+strings = a dict containing all the strings in the gui
+
+change_strings = a func to change the strings dict used especially when a language change is detected
+"""
 from litevision.lib.database import *
 
 all_settings = read_json()

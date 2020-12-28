@@ -18,11 +18,11 @@ class MenuBar(UIElement):
     
     :param rect: elemanın pygame.Rect'i
     :param manager: ui yöneticisi
-    :param menu_bar_data: bardaki menulerin ve alt menülerin bulunduğu dict
     :param container: bu elemanın neyin içinde olduğu
     :param parent: bu objenin 'sahibi' olan eleman
     :param object_id: objeye atanacak id
     :param anchors: objenin rect koordinatının nereye göre olduğunu bildiren dict
+    :param menu_bar_data: bardaki menulerin ve alt menülerin bulunduğu dict
     """
     def __init__(self,
                  rect: pygame.Rect,
