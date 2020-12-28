@@ -183,7 +183,7 @@ class SettingsWindow(UIWindow):
                         lang.strings["html_message_error_01"],
                         self.manager,
                         window_title=lang.strings['error'],
-                        object_id='error_01')
+                        object_id='#error_01')
                     self.warning_screen.dismiss_button.text = lang.strings[
                         "dismiss"]
                     self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
@@ -205,7 +205,7 @@ class SettingsWindow(UIWindow):
                         lang.strings["html_message_error_01"],
                         self.manager,
                         window_title=lang.strings['error'],
-                        object_id='error_01')
+                        object_id='#error_01')
                     self.warning_screen.dismiss_button.text = lang.strings[
                         "dismiss"]
                     self.warning_screen.dismiss_button.tool_tip_text = lang.strings[

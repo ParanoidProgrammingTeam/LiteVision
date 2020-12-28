@@ -5,7 +5,7 @@ from litevision.lib import database
 is_running = True
 
 if __name__ == "__main__":
-    # for some reason this works to a max of 3 times and its killing me
+    # for some reason this works to a max of ??? times and its killing me
     while is_running:
         settings = database.read_json()
         screen_mode = settings['screen_mode']

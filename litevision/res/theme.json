@@ -1,4 +1,92 @@
 {
+    "#settings_window": {
+        "colours": {
+            "dark_bg": "#2F4F4F",
+            "normal_border": "#949494"
+        }
+    },
+    "#settings_window.button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000"
+        }
+    },
+    "#settings_window.#title_bar": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.#close_button": {
+        "colours": {
+            "hovered_bg": "#800000",
+            "selected_bg": "#A72C12",
+            "active_bg": "#A72C12"
+        }
+    },
+    "#settings_window.label": {
+        "colours": {
+            "dark_bg": "#2F4F4F",
+            "normal_text": "#FFFFFF"
+        }
+    },
+    "#settings_window.drop_down_menu.#selected_option": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.drop_down_menu.#expand_button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.drop_down_menu.#drop_down_options_list.button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#keep_changes": {
+        "colours": {
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#485460",
+            "active_bg": "#485460",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "2",
+            "tool_tip_delay": "0.2"
+        }
+    },
     "button": {
         "font": {
             "name": "fira_code",
@@ -106,6 +194,52 @@
             "shadow_width": "0",
             "border_width": "0",
             "shape_corner_radius": "2"
+        }
+    },
+    "#fullscreen": {
+        "colours": {
+            "normal_bg": "#2F4F4F"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\full_screen\\full.png"
+            }
+        }
+    },
+    "#unfull": {
+        "colours": {
+            "normal_bg": "#2F4F4F"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\full_screen\\unfull.png"
+            }
+        }
+    },
+    "#error_01.text_box": {
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
         }
     }
 }

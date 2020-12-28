@@ -10,7 +10,7 @@
 - |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
 - update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk 
-- and just deal with the fullscreen shite already [~50%]
+- and just deal with the fullscreen shite already [~50%] -- it needs a dynamic icon thing and ahh im tired
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -46,6 +46,9 @@ class GUInterface:
         resolution = settings['resolution']
         self.resolution = (int(resolution['width']), int(resolution['height']))
         self.window_dimensions = (self.resolution)
+
+        settings['in_fullscreen'] = "false"
+        database.write_to(settings)
 
         title_icon = pygame.image.load(
             os.path.join('litevision', 'res', 'image_examples', 'icon32x.png'))
@@ -97,13 +100,19 @@ class GUInterface:
                                        anchors=GUI_ANCHORS_TOP_RIGHT)
         ### fullscreen button
         self.fullscreen_button_rect = pygame.Rect(
-            (-48 - 5, -48 - GUI_OFFSET_VALUE), (48, 48))
+            (-40 - 3 - GUI_OFFSET_VALUE, -40 - 3 - GUI_OFFSET_VALUE), (40, 40))
         self.fullscreen_button = UIButton(self.fullscreen_button_rect,
                                           '',
                                           self.manager,
                                           object_id='#fullscreen',
                                           anchors=GUI_ANCHORS_BOTTOM_RIGHT)
         #### for some reason fullscreen only works when resolution is 800x600 ??? idk why
+        self.unfull_button = UIButton(self.fullscreen_button_rect,
+                                      '',
+                                      self.manager,
+                                      object_id='#unfull',
+                                      anchors=GUI_ANCHORS_BOTTOM_RIGHT,
+                                      visible=0)
 
         ## windows
         ### settings window
@@ -191,7 +200,15 @@ class GUInterface:
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
-                and event.ui_element == self.fullscreen_button):
+                and event.ui_element == self.fullscreen_button) or (event.type == pygame.USEREVENT
+                and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                and event.ui_element == self.unfull_button):
+            if event.ui_element == self.fullscreen_button:
+                self.fullscreen_button.visible = 0
+                self.unfull_button.visible = 1
+            else:
+                self.fullscreen_button.visible = 1
+                self.unfull_button.visible = 0
             pygame.display.toggle_fullscreen()
             self.settings = database.read_json()
             if self.settings['in_fullscreen'] == 'false':
