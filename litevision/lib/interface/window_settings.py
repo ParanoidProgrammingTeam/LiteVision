@@ -2,8 +2,10 @@ import pygame_gui
 import pygame
 
 from pygame_gui.elements import UIDropDownMenu, UIButton, UILabel, UIWindow
+from pygame_gui.windows import UIMessageWindow
+
 import litevision.res.languages as lang
-from litevision.lib.database import * # yakıştı mı
+from litevision.lib.database import *
 from litevision.res.glob import *
 
 
@@ -15,8 +17,9 @@ class SettingsWindow(UIWindow):
     
     :param rect: koordinat ve ekran büyüklüğü
     :param manager: ui yöneticisi muhtemelen tüm arayüzün yöneticisi olucak burdaki
+    :param window_surface: ana ekranın pygame.surface'i buna hata penceresini ortalamak için ihtiyacımız var sodkfsedfkjsplofk
     """
-    def __init__(self, rect, manager):
+    def __init__(self, rect, manager, window_surface):
         super().__init__(rect,
                          manager,
                          lang.strings['settings_window'],
@@ -25,12 +28,17 @@ class SettingsWindow(UIWindow):
                          resizable=True)
         self.manager = manager
         self.settings = read_json()
+        self.window_surface = window_surface
 
+        self.warning_screen = None
+
+        self.in_fullscreen = False
         self.special_flags = self.settings['screen_mode']
         self.any_settings_changed = False
         self.setting_changed = {
             'res': False,  # resolution of screen
-            'fll': False,  # screen made fullscreen
+            'fll': False,  # screen made fullscreen 
+            # i removed fll from the settings window and made fullscreen toggleable from a button on the main menu but, didn't change this because I'm too lazy to debug it afterwards
             'scr': False,  # screen mode changed (other than fullscreen)
             'lng': False,  # language changed
             'yrs': False  # year changed 
@@ -65,21 +73,21 @@ class SettingsWindow(UIWindow):
         scr_mode_menu_rect.topleft = scr_mode_label_rect.bottomleft
         self.scr_mode_selections = lang.strings['screen_mode_list']
         current_screen_mode = self.settings['screen_mode']
-        
+
         if self.settings['screen_mode'] == "windowed" and self.settings[
                 'language'] == "turkce":
             current_screen_mode = self.scr_mode_selections[0]
-        
+
         elif self.settings['screen_mode'] == "borderless" and self.settings[
                 'language'] == "turkce":
             current_screen_mode = self.scr_mode_selections[1]
-        
+
         elif self.settings['screen_mode'] == "fullscreen" and self.settings[
                 'language'] == "turkce":
             current_screen_mode = self.scr_mode_selections[2]
-        
+
         self.scr_mode_menu = UIDropDownMenu(self.scr_mode_selections,
-                                            current_screen_mode,
+                                            current_screen_mode.capitalize(),
                                             scr_mode_menu_rect, self.manager,
                                             self, self, '#screen_menu')
 
@@ -88,7 +96,7 @@ class SettingsWindow(UIWindow):
             (12, 132), ((len(lang.strings['year_label']) * 10) - 19, 19))
         self.year_label = UILabel(year_label_rect, lang.strings['year_label'],
                                   self.manager, self, self, '#year_menu_label')
-        
+
         year_drop_down_rect = pygame.Rect((12, 156), (84, 24))
         year_drop_down_rect.topleft = year_label_rect.bottomleft
         self.year_selections = ['2018', '2017', '2016']
@@ -99,20 +107,19 @@ class SettingsWindow(UIWindow):
                                                   self,
                                                   self,
                                                   object_id='#year_menu')
-        
+
         # dil seçme ↓↓
         lang_label_rect = pygame.Rect(
             (200, 132), ((len(lang.strings['language_label']) * 10) - 24, 19))
         self.lang_label = UILabel(lang_label_rect,
                                   lang.strings['language_label'], self.manager,
                                   self, self, '#lang_menu_label')
-        
+
         lang_drop_down_rect = pygame.Rect((200, 156), (84, 24))
         lang_drop_down_rect.topleft = lang_label_rect.bottomleft
-        self.lang_drop_down = UIDropDownMenu(GUI_LANGUAGES,
-                                             self.settings["language"],
-                                             lang_drop_down_rect, self.manager,
-                                             self, self, '#lang_menu')
+        self.lang_drop_down = UIDropDownMenu(
+            GUI_LANGUAGES, self.settings["language"].capitalize(),
+            lang_drop_down_rect, self.manager, self, self, '#lang_menu')
 
         # keep changes? ↓↓
         save_button_x_size = ((len(lang.strings['keep_changes']) * 10) - 18)
@@ -122,7 +129,7 @@ class SettingsWindow(UIWindow):
                                     lang.strings['keep_changes'],
                                     self.manager,
                                     self,
-                                    'keep and apply all changes?',
+                                    lang.strings['keep_changes_hover'],
                                     parent_element=self,
                                     object_id='#keep_changes',
                                     anchors=GUI_ANCHORS_BOTTOM_RIGHT)
@@ -138,7 +145,7 @@ class SettingsWindow(UIWindow):
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.lang_drop_down):
-            self.settings["language"] = event.text
+            self.settings["language"] = event.text.lower()
             self.setting_changed['lng'] = True
             self.any_settings_changed = True
 
@@ -154,87 +161,109 @@ class SettingsWindow(UIWindow):
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.scr_mode_menu):
+            self.settings = read_json()
+            self.in_fullscreen = self.settings['in_fullscreen']
+
+            if self.in_fullscreen == "true":
+                self.in_fullscreen = True
+            else:
+                self.in_fullscreen = False
             new_scr_mode = SettingsWindow.change_scr_for_lang(
                 self.settings['language'], "turkce", event)
             print(new_scr_mode)
             self.settings['screen_mode'] = new_scr_mode
             screen_mode = self.settings['screen_mode']
-        
+
             if screen_mode == "borderless":
-                if self.special_flags == pygame.FULLSCREEN:
-                    self.special_flags = pygame.NOFRAME
-                    self.setting_changed['fll'] = True
-                    self.any_settings_changed = True
-        
+                if self.in_fullscreen:
+                    warning_rect = pygame.Rect((0, 0), (300, 300))
+                    warning_rect.center = self.window_surface.get_rect().center
+                    self.warning_screen = UIMessageWindow(
+                        warning_rect,
+                        lang.strings["html_message_error_01"],
+                        self.manager,
+                        window_title=lang.strings['error'],
+                        object_id='#error_01')
+                    self.warning_screen.dismiss_button.text = lang.strings[
+                        "dismiss"]
+                    self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
+                        'dismiss_tip']
+                    self.warning_screen.dismiss_button.rebuild()
+                    self.warning_screen.set_blocking(True)
+
                 elif self.special_flags != pygame.NOFRAME:
                     self.special_flags = pygame.NOFRAME
                     self.setting_changed['scr'] = True
                     self.any_settings_changed = True
-        
+
             elif screen_mode == "windowed":
-                if self.special_flags == pygame.FULLSCREEN:
-                    self.special_flags = 0
-                    self.setting_changed['fll'] = True
-                    self.any_settings_changed = True
-        
+                if self.in_fullscreen:
+                    warning_rect = pygame.Rect((0, 0), (300, 300))
+                    warning_rect.center = self.window_surface.get_rect().center
+                    self.warning_screen = UIMessageWindow(
+                        warning_rect,
+                        lang.strings["html_message_error_01"],
+                        self.manager,
+                        window_title=lang.strings['error'],
+                        object_id='#error_01')
+                    self.warning_screen.dismiss_button.text = lang.strings[
+                        "dismiss"]
+                    self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
+                        'dismiss_tip']
+                    self.warning_screen.set_blocking(True)
+
                 elif self.special_flags != 0:
                     self.special_flags = 0
                     self.setting_changed['scr'] = True
-                    self.any_settings_changed = True
-        
-            elif screen_mode == "fullscreen":
-                if self.special_flags != pygame.FULLSCREEN:
-                    self.special_flags = pygame.FULLSCREEN
-                    self.setting_changed['fll'] = True
                     self.any_settings_changed = True
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
                 and event.ui_object_id == '#settings_window.#keep_changes'):
-        
+
             if self.any_settings_changed == True:
                 if self.setting_changed['res'] == True:
                     write_to(self.settings)
                     pygame.event.post(GUI_WINDOW_RESOLUTION_CHANGED)
-        
+
                 elif self.setting_changed['lng'] == True:
                     write_to(self.settings)
                     pygame.event.post(GUI_LANUAGE_CHANGED)
-        
+
                 elif self.setting_changed['yrs'] == True:
                     write_to(self.settings)
-        
+
                 elif self.setting_changed['fll'] == True:
                     write_to(self.settings)
                     pygame.event.post(GUI_TOGGLE_FULLSCREEN)
-        
+
                 elif self.setting_changed['scr'] == True:
                     if self.special_flags == 0:
                         write_to(self.settings)
                         POST_SPECIAL_FLAG_CHANGE(self.special_flags)
-        
+
                     else:
                         write_to(self.settings)
                         POST_SPECIAL_FLAG_CHANGE(self.special_flags)
-        
+
                 lang.strings = lang.change_strings()
                 saved_changes = False
-        
+
                 if self.setting_changed['res'] == True or self.setting_changed[
                         'scr'] == True:
                     saved_changes = True
-        
+
                 for key in self.setting_changed:
                     if self.setting_changed[key] == True:
                         self.setting_changed[key] = False
-        
+
                 self.any_settings_changed = False
-        
+
                 if saved_changes:
                     pygame.event.post(GUI_CHANGES_MADE_TO_SETTINGS)
-        
+
             else:
-                print("tunapro1234")
+                print("no change to keep")
 
     def update(self, time_delta):
         super().update(time_delta)
@@ -244,49 +273,46 @@ class SettingsWindow(UIWindow):
         self.res_selections = [
             "600x500", "800x600", "900x650", "1000x700", "1200x700", "1240x740"
         ]
-        
+
         if r_string == "600x500":
             self.res_settings['width'] = 600
             self.res_settings['height'] = 500
-        
+
         elif r_string == "800x600":
             self.res_settings['width'] = 800
             self.res_settings['height'] = 600
-        
+
         elif r_string == "900x650":
             self.res_settings['width'] = 900
             self.res_settings['height'] = 650
-        
+
         elif r_string == "1000x700":
             self.res_settings['width'] = 1000
             self.res_settings['height'] = 700
-        
+
         elif r_string == "1200x700":
             self.res_settings['width'] = 1200
             self.res_settings['height'] = 700
-        
+
         elif r_string == "1240x740":
             self.res_settings['width'] = 1240
             self.res_settings['height'] = 740
-        
+
         else:
             self.res_settings['width'] = 800
             self.res_settings['height'] = 600
-        
+
         tuple_res = (self.res_settings['width'], self.res_settings['height'])
         return tuple_res
 
     @staticmethod
     def change_scr_for_lang(language_settings, language_name: str, event):
-        new_data = event.text
+        new_data = event.text.lower()
         if language_settings == language_name:
             if event.text == lang.strings['screen_mode_list'][0]:
                 new_data = "windowed"
-        
+
             elif event.text == lang.strings['screen_mode_list'][1]:
                 new_data = "borderless"
-        
-            elif event.text == lang.strings['screen_mode_list'][2]:
-                new_data = "fullscreen"
-        
+
         return new_data

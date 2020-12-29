@@ -1,15 +1,16 @@
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~TODO~~~~~~~~~~~~~~~~~~~~~~~~~~
 - I just started I don't even know lol
-- Settings Window [~60%]
+- Settings Window [~68%]
 - Stream Window [~90%]
-- This Class [~64%]
+- This Class [~67%]
 - Menu Bar or Side Menu Bar [~50%]
 - a lot more
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
 - |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
-- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk and just deal with the fullscreen shite already
+- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk 
+- and just deal with the fullscreen shite already [~80%]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -45,6 +46,9 @@ class GUInterface:
         resolution = settings['resolution']
         self.resolution = (int(resolution['width']), int(resolution['height']))
         self.window_dimensions = (self.resolution)
+
+        settings['in_fullscreen'] = "false"
+        database.write_to(settings)
 
         title_icon = pygame.image.load(
             os.path.join('litevision', 'res', 'image_examples', 'icon32x.png'))
@@ -95,13 +99,21 @@ class GUInterface:
                                        object_id='#min_ui_button',
                                        anchors=GUI_ANCHORS_TOP_RIGHT)
         ### fullscreen button
-        #### self.fullscreen_button_rect = pygame.Rect((5, -48 - GUI_OFFSET_VALUE),
-        ####                                           (48, 48))
-        #### self.fullscreen_button = UIButton(self.fullscreen_button_rect,
-        ####                                   '',
-        ####                                   self.manager,
-        ####                                   object_id='#fullscreen',
-        ####                                   anchors=GUI_ANCHORS_BOTTOM_RIGHT)
+        self.fullscreen_button_rect = pygame.Rect(
+            (-40 - 3 - GUI_OFFSET_VALUE, -40 - 3 - GUI_OFFSET_VALUE), (40, 40))
+        self.fullscreen_button = UIButton(self.fullscreen_button_rect,
+                                          '',
+                                          self.manager,
+                                          object_id='#fullscreen',
+                                          anchors=GUI_ANCHORS_BOTTOM_RIGHT)
+        #### for some reason fullscreen only works when resolution is 800x600 ??? idk why
+        self.unfull_button = UIButton(self.fullscreen_button_rect,
+                                      '',
+                                      self.manager,
+                                      object_id='#unfull',
+                                      anchors=GUI_ANCHORS_BOTTOM_RIGHT,
+                                      visible=0)
+
         ## windows
         ### settings window
         self.settings_window = None
@@ -154,7 +166,8 @@ class GUInterface:
                 settings_rect = pygame.Rect((0, 0), (400, 400))
                 settings_rect.bottomleft = self.settings_button.rect.topright
                 self.settings_window = SettingsWindow(settings_rect,
-                                                      self.manager)
+                                                      self.manager,
+                                                      self.main_window)
             else:
                 self.settings_window.kill()
                 self.settings_window = None
@@ -162,7 +175,13 @@ class GUInterface:
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
                 and self.settings_window is not None and event.ui_element
-                == self.settings_window.close_window_button):
+                == self.settings_window.close_window_button) or (
+                    event.type == pygame.USEREVENT
+                    and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                    and self.settings_window is not None
+                    and self.settings_window.warning_screen is not None
+                    and event.ui_element
+                    == self.settings_window.warning_screen.dismiss_button):
             self.settings_window.kill()
             self.settings_window = None
 
@@ -176,11 +195,29 @@ class GUInterface:
                 settings_rect = pygame.Rect((0, 0), (400, 400))
                 settings_rect.bottomleft = self.settings_button.rect.topright
                 self.settings_window = SettingsWindow(settings_rect,
-                                                      self.manager)
+                                                      self.manager,
+                                                      self.main_window)
 
         if (event.type == pygame.USEREVENT
-                and event.user_type == 'fullscreen_toggled'):
+                and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                and event.ui_element == self.fullscreen_button) or (
+                    event.type == pygame.USEREVENT
+                    and event.user_type == pygame_gui.UI_BUTTON_PRESSED
+                    and event.ui_element == self.unfull_button):
+            if event.ui_element == self.fullscreen_button:
+                self.fullscreen_button.visible = 0
+                self.unfull_button.visible = 1
+            else:
+                self.fullscreen_button.visible = 1
+                self.unfull_button.visible = 0
             pygame.display.toggle_fullscreen()
+            self.settings = database.read_json()
+            if self.settings['in_fullscreen'] == 'false':
+                self.settings['in_fullscreen'] = 'true'
+                database.write_to(self.settings)
+            else:
+                self.settings['in_fullscreen'] = 'false'
+                database.write_to(self.settings)
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == 'changes_made'):
@@ -189,7 +226,6 @@ class GUInterface:
         self.manager.process_events(event)
 
     def kill(self):
-        print("going dark")
         pygame.quit()
 
     def run(self):

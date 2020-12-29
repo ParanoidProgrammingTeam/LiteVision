@@ -5,7 +5,7 @@ from litevision.lib import database
 is_running = True
 
 if __name__ == "__main__":
-    # for some reason this works to a max of 3 times and its killing me
+    # for some reason this works to a max of ??? times and its killing me
     while is_running:
         settings = database.read_json()
         screen_mode = settings['screen_mode']
@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
         app = GUInterface()
         app.run()
-        app.kill()
         print("stopped running")
+        app.kill()
 
         settings = database.read_json()
         # check changes that require reset and if any are made instead of completely killing everything

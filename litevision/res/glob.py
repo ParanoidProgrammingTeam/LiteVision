@@ -99,7 +99,7 @@ MENU_BAR_DATA_DICT = {
 }
 
 GUI_OFFSET_VALUE = 5
-GUI_LANGUAGES = ['turkce', 'english']
+GUI_LANGUAGES = ['Turkce', 'English']
 
 __all__ = [
     'GUI_STREAM_WINDOW_START', 'GUI_STREAM_WINDOW_PAUSE',
