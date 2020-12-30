@@ -1,5 +1,5 @@
+pygame>=2.0.0
+numpy==1.19.3
+opencv-python
 pygame_gui
-opencv
-pygame
-numpy
 dbex
