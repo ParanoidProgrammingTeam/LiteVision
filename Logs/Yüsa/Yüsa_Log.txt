@@ -82,3 +82,6 @@ pwkfpwelfkjwpdlk bugün tuna klasörlerin düzenine kızdı onu yaptık 👍
 ağladım bugün
 bi de maini interface'e mergeladım zordu biraz kompleks conflictler çıktı çözdüm ama nasıl çözdüm
 ya da neden sorun çıktı bilmiyorum odjfhpsdkfjsdkj neyse
+
+["Entry 21": 31.12.2020 - 2.34 AM]
+commit attım interface'te
