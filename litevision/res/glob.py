@@ -81,7 +81,7 @@ MENU_BAR_DATA_DICT = {
         'items': {}
     },
     '#start_processing': {
-        'display_name': 'sp',
+        'display_name': ' ',
         'items': {}
     },
     '#cam_change': {

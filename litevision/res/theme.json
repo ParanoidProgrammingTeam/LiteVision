@@ -288,6 +288,11 @@
             "shadow_width": "0",
             "border_width": "0",
             "shape_corner_radius": "2"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\sp.png"
+            }
         }
     },
     "#fullscreen": {

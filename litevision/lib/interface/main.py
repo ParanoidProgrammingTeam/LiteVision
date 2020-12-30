@@ -1,10 +1,10 @@
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~TODO~~~~~~~~~~~~~~~~~~~~~~~~~~
 - I just started I don't even know lol
-- Settings Window [~68%]
+- Settings Window [~72%]
 - Stream Window [~90%]
 - This Class [~67%]
-- Menu Bar or Side Menu Bar [~50%]
+- Menu Bar or Side Menu Bar [~56%]
 - a lot more
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
 - |should be done|rgb picker thingy pdfksdlfkpşlf
