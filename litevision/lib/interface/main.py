@@ -9,14 +9,22 @@
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
 - |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
-- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk 
+- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk (if you can lol)
 - and just deal with the fullscreen shite already [~80%]
+- further expand the theme.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~NOTES~~~~~~~~~~~~~~~~~~~~~~~~~
+- the fullscreen is still kinda buggy... it seems nice but if you double click to fastly i think it can swap the icons idk its weird
+- the auto-relaunch is even wierder tbh, it crashes after a few times but i have no idea why, it changes for some reason i think
+according to the changes made like 3 times if you change the screen mode 5 times if you change resolution or sth idk its very weird
+- if you select the already selected option on any of the settings options and press keep changes it closes the program thinking a change was
+made but when it can't find ant keeps it closed. doing something like that would be idiotic but, i guess i still should try to fix it.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-import pygame_gui
-import pygame
 import os
+import pygame
+import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
 
 from litevision.lib.interface.menu_bar import MenuBar
