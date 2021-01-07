@@ -70,3 +70,6 @@ pygame.imagele uğraşıyorum hala
 
 22. Gün
 bilmiyom yapmıştır bi şiler zaten geçe bıraktım bekleyemem pdkfpdkjfpsldkf --yüşa
+
+23. Gün 
+pygame.image
