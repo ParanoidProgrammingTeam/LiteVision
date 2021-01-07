@@ -6,6 +6,8 @@ class StreamWindow(UIImage):
     """
     Kameradakilerin yansıtıldığı ekran bu sınıfın objesi olucak.
     
+    Bu sınıfa çok gerek yoktu aslında ama yaptım öyle attribute ekleyebilirdim ama başka yerlerde yönetilen bi uiimage oldu baya neyse
+    
     :param rect: koordinat ve ekran büyüklüğü
     :param stream_surface: pygame surface işte
     :param manager: ui yöneticisi, muhtemelen tüm arayüzün yöneticisi neyse o olucak burdaki

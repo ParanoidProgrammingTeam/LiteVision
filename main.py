@@ -10,6 +10,7 @@ if __name__ == "__main__":
         settings = database.read_json()
         screen_mode = settings['screen_mode']
         resolution = settings['resolution']
+        print("app starting..")
 
         app = GUInterface()
         app.run()
@@ -23,10 +24,8 @@ if __name__ == "__main__":
         print(resolution, "->", settings['resolution'])
         if screen_mode != settings['screen_mode']:
             app = None
-            print("restarting loop")
         elif resolution != settings['resolution']:
             app = None
-            print("restarting loop")
         else:
             print("no changes..\nstopping main")
             is_running = False

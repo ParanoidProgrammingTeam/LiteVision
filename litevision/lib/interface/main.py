@@ -1,22 +1,30 @@
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~TODO~~~~~~~~~~~~~~~~~~~~~~~~~~
 - I just started I don't even know lol
-- Settings Window [~68%]
+- Settings Window [~74%]
 - Stream Window [~90%]
 - This Class [~67%]
-- Menu Bar or Side Menu Bar [~50%]
+- Menu Bar or Side Menu Bar [~56%]
 - a lot more
 - |DONE|MAKE A KEEP CHANGES BUTTON TO SETTINGS WINDOW SO ITS NOT SO MIND KILLING SPDKJFDPFKJ
 - |should be done|rgb picker thingy pdfksdlfkpşlf
 - team number selection
-- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk 
+- update the auto-relaunch mechanizm and make it better dfgkpdlfkgpdlfk (if you can lol)
 - and just deal with the fullscreen shite already [~80%]
+- further expand the theme.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~NOTES~~~~~~~~~~~~~~~~~~~~~~~~~
+- the fullscreen is still kinda buggy... it seems nice but if you double click to fastly i think it can swap the icons idk its weird
+- the auto-relaunch is even wierder tbh, it crashes after a few times but i have no idea why, it changes for some reason i think
+according to the changes made like 3 times if you change the screen mode 5 times if you change resolution or sth idk its very weird
+FİXED! - (- if you select the already selected option on any of the settings options and press keep changes it closes the program thinking a change was
+made but when it can't find ant keeps it closed. doing something like that would be idiotic but, i guess i still should try to fix it.)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-import pygame_gui
-import pygame
 import os
+import pygame
+import pygame_gui
 from pygame_gui.elements.ui_button import UIButton
 
 from litevision.lib.interface.menu_bar import MenuBar
@@ -54,6 +62,7 @@ class GUInterface:
             os.path.join('litevision', 'res', 'image_examples', 'icon32x.png'))
         pygame.display.set_icon(title_icon)
 
+        # şuanki ekran modunu şaapıyo
         flags = settings['screen_mode']
         if flags != "fullscreen":
             if flags == "borderless":
@@ -143,6 +152,7 @@ class GUInterface:
         self.is_running = True
 
     def on_event(self, event):
+        # eventleri açıklamicam biraz karışık görünebilir ama max bu kadar düzenli yapabiliyom lsdkfjpedkfjg
         if event.type == pygame.QUIT:
             self.is_running = False
 
@@ -157,7 +167,7 @@ class GUInterface:
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
                 and event.ui_object_id == '#min_ui_button'):
-            pygame.display.iconify()
+            pygame.display.iconify()  # iconify = minimize
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
@@ -211,6 +221,7 @@ class GUInterface:
                 self.fullscreen_button.visible = 1
                 self.unfull_button.visible = 0
             pygame.display.toggle_fullscreen()
+            # pygame2'yle gelmiş olması lazım yukarıdaki fonksiyonun tam ekran değilse yapar tam ekransa çıkarır
             self.settings = database.read_json()
             if self.settings['in_fullscreen'] == 'false':
                 self.settings['in_fullscreen'] = 'true'
@@ -226,6 +237,10 @@ class GUInterface:
         self.manager.process_events(event)
 
     def kill(self):
+        """
+        bu sınıf hariç bi yerden pygame.quit diyebilmek için fonksiyon içindeki hali
+        direkt [obj].quit() deniliyo muydu bilmiyom o yüzden böyle yaptım
+        """
         pygame.quit()
 
     def run(self):

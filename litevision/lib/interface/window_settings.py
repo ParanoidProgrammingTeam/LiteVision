@@ -138,84 +138,92 @@ class SettingsWindow(UIWindow):
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.year_drop_down_menu):
-            self.settings["year"] = event.text
-            self.setting_changed['yrs'] = True
-            self.any_settings_changed = True
+            if self.settings["year"] != event.text:
+                self.settings["year"] = event.text
+                self.setting_changed['yrs'] = True
+                self.any_settings_changed = True
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.lang_drop_down):
-            self.settings["language"] = event.text.lower()
-            self.setting_changed['lng'] = True
-            self.any_settings_changed = True
+            if self.settings["language"] != event.text.lower():
+                self.settings["language"] = event.text.lower()
+                self.setting_changed['lng'] = True
+                self.any_settings_changed = True
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.resol_drop_down):
             resolution = self.make_res_tuple(event.text)
-            self.settings["resolution"]['width'] = resolution[0]
-            self.settings["resolution"]['height'] = resolution[1]
-            self.setting_changed['res'] = True
-            self.any_settings_changed = True
+            if (self.settings["resolution"]['width'] != resolution[0] and
+                    self.settings["resolution"]['height'] != resolution[1]):
+                self.settings["resolution"]['width'] = resolution[0]
+                self.settings["resolution"]['height'] = resolution[1]
+                self.setting_changed['res'] = True
+                self.any_settings_changed = True
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED
                 and event.ui_element == self.scr_mode_menu):
             self.settings = read_json()
-            self.in_fullscreen = self.settings['in_fullscreen']
 
+            self.in_fullscreen = self.settings['in_fullscreen']
             if self.in_fullscreen == "true":
                 self.in_fullscreen = True
             else:
                 self.in_fullscreen = False
+
             new_scr_mode = SettingsWindow.change_scr_for_lang(
                 self.settings['language'], "turkce", event)
             print(new_scr_mode)
-            self.settings['screen_mode'] = new_scr_mode
-            screen_mode = self.settings['screen_mode']
 
-            if screen_mode == "borderless":
-                if self.in_fullscreen:
-                    warning_rect = pygame.Rect((0, 0), (300, 300))
-                    warning_rect.center = self.window_surface.get_rect().center
-                    self.warning_screen = UIMessageWindow(
-                        warning_rect,
-                        lang.strings["html_message_error_01"],
-                        self.manager,
-                        window_title=lang.strings['error'],
-                        object_id='#error_01')
-                    self.warning_screen.dismiss_button.text = lang.strings[
-                        "dismiss"]
-                    self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
-                        'dismiss_tip']
-                    self.warning_screen.dismiss_button.rebuild()
-                    self.warning_screen.set_blocking(True)
+            if self.settings['screen_mode'] != new_scr_mode:
+                self.settings['screen_mode'] = new_scr_mode
+                screen_mode = self.settings['screen_mode']
+                if screen_mode == "borderless":
+                    if self.in_fullscreen:
+                        warning_rect = pygame.Rect((0, 0), (300, 300))
+                        warning_rect.center = self.window_surface.get_rect(
+                        ).center
+                        self.warning_screen = UIMessageWindow(
+                            warning_rect,
+                            lang.strings["html_message_error_01"],
+                            self.manager,
+                            window_title=lang.strings['error'],
+                            object_id='#error_01')
+                        self.warning_screen.dismiss_button.text = lang.strings[
+                            "dismiss"]
+                        self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
+                            'dismiss_tip']
+                        self.warning_screen.dismiss_button.rebuild()
+                        self.warning_screen.set_blocking(True)
 
-                elif self.special_flags != pygame.NOFRAME:
-                    self.special_flags = pygame.NOFRAME
-                    self.setting_changed['scr'] = True
-                    self.any_settings_changed = True
+                    elif self.special_flags != pygame.NOFRAME:
+                        self.special_flags = pygame.NOFRAME
+                        self.setting_changed['scr'] = True
+                        self.any_settings_changed = True
 
-            elif screen_mode == "windowed":
-                if self.in_fullscreen:
-                    warning_rect = pygame.Rect((0, 0), (300, 300))
-                    warning_rect.center = self.window_surface.get_rect().center
-                    self.warning_screen = UIMessageWindow(
-                        warning_rect,
-                        lang.strings["html_message_error_01"],
-                        self.manager,
-                        window_title=lang.strings['error'],
-                        object_id='#error_01')
-                    self.warning_screen.dismiss_button.text = lang.strings[
-                        "dismiss"]
-                    self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
-                        'dismiss_tip']
-                    self.warning_screen.set_blocking(True)
+                elif screen_mode == "windowed":
+                    if self.in_fullscreen:
+                        warning_rect = pygame.Rect((0, 0), (300, 300))
+                        warning_rect.center = self.window_surface.get_rect(
+                        ).center
+                        self.warning_screen = UIMessageWindow(
+                            warning_rect,
+                            lang.strings["html_message_error_01"],
+                            self.manager,
+                            window_title=lang.strings['error'],
+                            object_id='#error_01')
+                        self.warning_screen.dismiss_button.text = lang.strings[
+                            "dismiss"]
+                        self.warning_screen.dismiss_button.tool_tip_text = lang.strings[
+                            'dismiss_tip']
+                        self.warning_screen.set_blocking(True)
 
-                elif self.special_flags != 0:
-                    self.special_flags = 0
-                    self.setting_changed['scr'] = True
-                    self.any_settings_changed = True
+                    elif self.special_flags != 0:
+                        self.special_flags = 0
+                        self.setting_changed['scr'] = True
+                        self.any_settings_changed = True
 
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_PRESSED
