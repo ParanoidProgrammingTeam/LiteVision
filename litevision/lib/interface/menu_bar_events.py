@@ -4,6 +4,7 @@ import os
 
 from litevision.lib.database import *
 from litevision.res.glob import *
+import litevision.res.languages as lang
 
 
 class HandlerForMenuBarEvents:
@@ -49,6 +50,7 @@ class HandlerForMenuBarEvents:
         if (event.type == pygame.USEREVENT
                 and event.user_type == pygame_gui.UI_BUTTON_START_PRESS
                 and event.ui_object_id == '#menu_bar.#rgb_button'):
+            # burdaki arkadaş litevision.json'dan ayarları dict'e alıyo sonra rgb seçme ekranı açıyo
             self.min_rgb_dict = self.litevison_settings["min_color"]["rgb"]
             min_rgb_tuple = (int(self.min_rgb_dict["r"]),
                              int(self.min_rgb_dict["g"]),
@@ -66,13 +68,17 @@ class HandlerForMenuBarEvents:
                 self.min_rgb_picker = pygame_gui.windows.UIColourPickerDialog(
                     rect=pygame.Rect((64, 200), (390, 390)),
                     manager=self.ui_manager,
-                    window_title='Minimum',
+                    window_title=lang.strings['min'],
                     initial_colour=self.min_rgb_color)
+                self.min_rgb_picker.cancel_button.set_text(
+                    lang.strings['cancel'])
                 self.max_rgb_picker = pygame_gui.windows.UIColourPickerDialog(
                     rect=pygame.Rect((424, 200), (390, 390)),
                     manager=self.ui_manager,
-                    window_title='Maximum',
+                    window_title=lang.strings['max'],
                     initial_colour=self.max_rgb_color)
+                self.max_rgb_picker.cancel_button.set_text(
+                    lang.strings['cancel'])
             else:
                 # close
                 self.min_rgb_picker.kill()
@@ -82,6 +88,8 @@ class HandlerForMenuBarEvents:
 
         if (event.type == pygame.USEREVENT and event.user_type
                 == pygame_gui.UI_COLOUR_PICKER_COLOUR_PICKED):
+            # bu arkadaş rgb seçici(ler)den renk seçince seçilen değerin hem hsv hem de
+            # rgb ayarını renk dictine yazıp onu ayar dictine yazıp litevision.json'a yazıyo wpedkjfhspdkfj
             min_color_dict = self.litevison_settings["min_color"]
             max_color_dict = self.litevison_settings["max_color"]
             if event.ui_element == self.min_rgb_picker:

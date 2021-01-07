@@ -35,7 +35,10 @@ if language_setting == "turkce":
         'html_message_error_01':
         '<b>lütfen öncelikle ana ekrandaki tam ekran butonunu kullanarak<br>tam ekrandan çıkınız, daha sonra ekran modu değiştirebilirsiniz.</b>',
         'dismiss': 'Tamam',
-        'dismiss_tip': 'Mesajı kapatmak için tıklayınız.'
+        'dismiss_tip': 'Mesajı kapatmak için tıklayınız.',
+        'min': 'Minimum',
+        'max': 'Maksimum',
+        'cancel': 'İptal'
     }
 else:
     strings = {
@@ -51,7 +54,10 @@ else:
         'html_message_error_01':
         '<b>please first use the fullscreen toggle to exit fullscreen<br>and then change the screen mode.</b>',
         'dismiss': 'Dismiss',
-        'dismiss_tip': 'Click to get rid of this message.'
+        'dismiss_tip': 'Click to get rid of this message.',
+        'min': 'Minimum',
+        'max': 'Maximum',
+        'cancel': 'Cancel'
     }
 
 
@@ -73,7 +79,10 @@ def change_strings():
             'html_message_error_01':
             '<b>lütfen öncelikle ana ekrandaki tam ekran butonunu kullanarak<br>tam ekrandan çıkınız, daha sonra ekran modu değiştirebilirsiniz.</b>',
             'dismiss': 'Tamam',
-            'dismiss_tip': 'Mesajı kapatmak için tıklayınız.'
+            'dismiss_tip': 'Mesajı kapatmak için tıklayınız.',
+            'min': 'Minimum',
+            'max': 'Maksimum',
+            'cancel': 'İptal'
         }
     if language_setting == "english":
         strings = {
@@ -89,6 +98,9 @@ def change_strings():
             'html_message_error_01':
             '<b>please first use the fullscreen toggle to exit fullscreen<br>and then change the screen mode.</b>',
             'dismiss': 'Dismiss',
-            'dismiss_tip': 'Click to get rid of this message.'
+            'dismiss_tip': 'Click to get rid of this message.',
+            'min': 'Minimum',
+            'max': 'Maximum',
+            'cancel': 'Cancel'
         }
     return strings
