@@ -49,3 +49,28 @@ windowsa opencv kurmakla ugrastim bide bi iki tekrar falan yaptim
 
 day16:
 tekrar yaptım ilerlemedim videolarda
+
+day17:
+human detectionda anlamadigim bi iki bi şi vardı ona baktım ve 20. videoyu izledim
+
+day18:
+haar cascade çalıştım
+
+day19:
+haar cascade çalıştım vol2
+
+day20:
+corner detectiona bi daha baktım ve hala playlistin son videosunu izlemedim...
+
+day21:
+cleaning imageslı olan videoya baktım -19. video- videodan anladığım hiç bi şi o yüzden
+bi 648347 kere daha izlemem lazım
+
+day22:
+bu da ödev yapmış --yüşa
+
+day22.5:
+image arithmetics and logic videosunu bi daha izledim
+
+day23:
+playlisti bitti...

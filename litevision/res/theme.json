@@ -1,0 +1,346 @@
+{
+    "#settings_window": {
+        "colours": {
+            "dark_bg": "#2F4F4F",
+            "normal_border": "#949494"
+        },
+        "misc": {
+            "border_width": "2"
+        }
+    },
+    "#settings_window.button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000"
+        }
+    },
+    "#settings_window.#title_bar": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.#close_button": {
+        "colours": {
+            "hovered_bg": "#800000",
+            "selected_bg": "#A72C12",
+            "active_bg": "#A72C12"
+        }
+    },
+    "#settings_window.label": {
+        "colours": {
+            "dark_bg": "#2F4F4F",
+            "normal_text": "#FFFFFF"
+        }
+    },
+    "#settings_window.drop_down_menu.#selected_option": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.drop_down_menu.#expand_button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#settings_window.drop_down_menu.#drop_down_options_list.button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        }
+    },
+    "#keep_changes": {
+        "colours": {
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#485460",
+            "active_bg": "#485460",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "2",
+            "tool_tip_delay": "0.2"
+        }
+    },
+    "#colour_picker_dialog": {
+        "colours": {
+            "dark_bg": "#2F4F4F",
+            "normal_border": "#949494"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "2"
+        }
+    },
+    "#colour_picker_dialog.button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "normal_text": "#000000",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "active_text": "#000000"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "border_width": "0"
+        }
+    },
+    "#colour_picker_dialog.#title_bar": {
+        "colours": {
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b"
+        }
+    },
+    "#colour_picker_dialog.#ok_button": {
+        "colours": {
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#3c6382",
+            "active_bg": "#3c6382"
+        }
+    },
+    "#colour_picker_dialog.#cancel_button": {
+        "colours": {
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#3c6382",
+            "active_bg": "#3c6382"
+        }
+    },
+    "#colour_picker_dialog.#close_button": {
+        "colours": {
+            "hovered_bg": "#808e9b",
+            "selected_bg": "#3c6382",
+            "active_bg": "#3c6382"
+        }
+    },
+    "#colour_picker_dialog.colour_channel_editor.label": {
+        "colours": {
+            "dark_bg": "#2F4F4F"
+        }
+    },
+    "#colour_picker_dialog.colour_channel_editor.horizontal_slider": {
+        "colours": {
+            "normal_border": "#949494"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "1",
+            "shadow_width": "0"
+        }
+    },
+    "#colour_picker_dialog.colour_channel_editor.horizontal_slider.button": {
+        "colours": {
+            "normal_bg": "#949494"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    },
+    "#colour_picker_dialog.colour_channel_editor.horizontal_slider.#sliding_button": {
+        "colours": {
+            "normal_bg": "#949494",
+            "hovered_bg": "#949494",
+            "selected_bg": "#808e9b",
+            "active_bg": "#808e9b"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    },
+    "button": {
+        "font": {
+            "name": "fira_code",
+            "size": "14"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    },
+    "menu_bar": {
+        "colours": {
+            "normal_bg": "#2F4F4F"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        }
+    },
+    "#empty": {
+        "colours": {
+            "normal_bg": "#2F4F4F",
+            "hovered_bg": "#2F4F4F",
+            "selected_bg": "#2F4F4F",
+            "active_bg": "#2F4F4F"
+        }
+    },
+    "#empty_1": {
+        "prototype": "#empty"
+    },
+    "#empty_2": {
+        "prototype": "#empty"
+    },
+    "#settings_button": {
+        "colours": {
+            "normal_bg": "#2F4F4F",
+            "hovered_bg": "#2F4F4F",
+            "selected_bg": "#2F4F4F",
+            "active_bg": "#2F4F4F"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\settings_icon\\settings_icon_48px.png"
+            },
+            "selected_image": {
+                "path": "litevision\\res\\image_examples\\settings_icon\\settings_icon_selected_48px.png"
+            }
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "15",
+            "state_transitions": {
+                "normal_hovered": "0.5",
+                "hovered_normal": "0.5"
+            }
+        }
+    },
+    "#close_ui_button": {
+        "colours": {
+            "normal_bg": "#800000",
+            "hovered_bg": "#A72C12",
+            "selected_bg": "#FF0000",
+            "active_bg": "#FF0000"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        }
+    },
+    "#min_ui_button": {
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        }
+    },
+    "#start_processing": {
+        "colours": {
+            "normal_bg": "#2F4F4F"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0",
+            "shape_corner_radius": "2"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\sp.png"
+            }
+        }
+    },
+    "#fullscreen": {
+        "colours": {
+            "normal_bg": "#2F4F4F",
+            "hovered_bg": "#3c6382"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\full_screen\\full.png"
+            }
+        }
+    },
+    "#unfull": {
+        "colours": {
+            "normal_bg": "#2F4F4F",
+            "hovered_bg": "#3c6382"
+        },
+        "font": {
+            "name": "fira_code",
+            "size": "16",
+            "bold": "1"
+        },
+        "misc": {
+            "shape": "rectangle",
+            "shadow_width": "0",
+            "border_width": "0"
+        },
+        "images": {
+            "normal_image": {
+                "path": "litevision\\res\\image_examples\\full_screen\\unfull.png"
+            }
+        }
+    },
+    "#error_01.text_box": {
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0"
+        }
+    }
+}
